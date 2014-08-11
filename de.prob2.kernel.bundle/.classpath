@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/answerparser-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/antlr4-runtime-4.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/aopalliance-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/asm-3.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/asm-analysis-3.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/asm-tree-3.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/asm-util-3.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bparser-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/cglib-2.2.1-v20090111.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/cliparser-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/collections-generic-4.01.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/colt-1.2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-cli-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-codec-1.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-lang-2.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/compiler-0.8.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/concurrent-1.3.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/de.prob.core.kernel-2.0.0-milestone-15-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/groovy-all-2.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/gson-1.7.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/guava-14.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/guice-3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/guice-servlet-3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/hamcrest-core-1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javafx.mvn-2.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.inject-1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.servlet-3.0.0.v201112011016.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-continuation-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-http-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-io-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-security-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-server-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-servlet-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-util-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-webapp-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-xml-8.1.8.v20121106.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jfmi-1.0.2-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jna-3.4.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jsoup-1.7.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jsr305-1.3.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jung-algorithms-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jung-api-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jung-graph-impl-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jung-jai-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jung-visualization-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/junit-4.8.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/junit-dep-4.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/logback-classic-0.9.29.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/logback-core-0.9.29.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ltl-dsl-1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ltlparser-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.abego.treelayout.core-1.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eventb.core.ast-2.6.0.r15029.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/parboiled-core-1.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/parboiled-java-1.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/parserbase-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/pegdown-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/prologlib-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/spock-core-0.7-groovy-2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/theorymapping-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/tla2bAST-1.0.5-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/tlatools-1.0.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/unicode-2.4.22-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlpull-1.1.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xpp3_min-1.1.4c.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xstream-1.4.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

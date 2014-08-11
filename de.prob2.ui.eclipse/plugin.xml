@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+ <extension
+         point="org.eclipse.ui.menus">
+        <menuContribution
+              allPopups="false"
+              locationURI="popup:de.prob.ui.groovybinding">
+           <command
+                 commandId="de.prob.ui.remove_variable"
+                 icon="icons/rem_co.gif"
+                 label="Remove Variable"
+                 style="push">
+           </command>
+        </menuContribution>
+        <menuContribution
+              allPopups="false"
+              locationURI="menu:analyze">
+           <command
+                 commandId="de.prob2.ui.eclipse.openView"
+                 label="Open Formula Visualization"
+                 style="push">
+                  <parameter
+                    name="de.prob2.ui.eclipse.views.id"
+                    value="de.prob.ui.views.formulavisualization">
+                  </parameter>
+           </command>
+           <command
+                 commandId="de.prob2.ui.eclipse.openView"
+                 label="Open Time vs Value Visualization"
+                 style="push">
+                  <parameter
+                    name="de.prob2.ui.eclipse.views.id"
+                    value="de.prob.ui.views.valueovertimevisualization">
+                  </parameter>
+           </command>
+           <command
+                 commandId="de.prob2.ui.eclipse.openView"
+                 label="Open State Space Visualization"
+                 style="push">
+                  <parameter
+                    name="de.prob2.ui.eclipse.views.id"
+                    value="de.prob.ui.views.statespacevisualization">
+                  </parameter>
+           </command>
+        </menuContribution>
+        <menuContribution
+              allPopups="false"
+              locationURI="menu:groovy">
+           <command
+                 commandId="de.prob2.ui.eclipse.openView"
+                 label="Open new Groovy console"
+                 style="push">
+              <parameter
+                    name="de.prob2.ui.eclipse.views.id"
+                    value="de.prob2.ui.eclipse.groovyconsole">
+              </parameter>
+           </command>
+        </menuContribution>
+   </extension>
+
+<extension
+         point="org.eclipse.ui.handlers">      
+      <handler
+            commandId="de.prob2.ui.eclipse.openView.url">
+         <class
+               class="de.prob2.ui.eclipse.handlers.OpenViewHandler">
+         </class>
+      </handler>
+   </extension>
+
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="de.prob2.ui.eclipse.handlers.OpenViewHandler"
+            id="de.prob2.ui.eclipse.openView"
+            name="Open View">
+         <commandParameter
+               id="de.prob2.ui.eclipse.views.id"
+               name="View Id"
+               optional="false">
+         </commandParameter>
+      </command>
+   </extension>
+  <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="de.prob2"
+            name="ProB">
+      </category>
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.EventsView"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.events"
+            name="Events">
+      </view>
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.StateView"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.stateinspector"
+            name="State Inspector">
+      </view>
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.CurrentTraceView"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.currenttrace"
+            name="Current Trace">
+      </view>
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.AnimationsView"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.animations"
+            name="Current Animations">
+      </view>
+      
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.ModelCheckingView"
+            icon="icons/Consistency.png"
+            id="de.prob2.ui.eclipse.modelchecking"
+            name="Model Checking"
+            restorable="true">
+      </view>
+
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.BUnitView"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.BUnitView"
+            name="BUnit Tests">
+      </view>
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.LogView"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.log"
+            name="Log View"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="true"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.GroovyConsoleView"
+            icon="icons/groovy.png"
+            id="de.prob2.ui.eclipse.groovyconsole"
+            name="Groovy Console"
+            restorable="true">
+      </view>
+      
+      <view
+            allowMultiple="true"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.FormulaVizView"
+            icon="icons/sample.gif"
+            id="de.prob.ui.views.formulavisualization"
+            name="Formula Visualization View"
+            restorable="false">
+      </view>
+      <view
+            allowMultiple="true"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.ValueOverTimeVizView"
+            icon="icons/sample.gif"
+            id="de.prob.ui.views.valueovertimevisualization"
+            name="Value over Time Visualization View"
+            restorable="false">
+      </view>
+      <view
+            allowMultiple="true"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.StateSpaceVizView"
+            icon="icons/sample.gif"
+            id="de.prob.ui.views.statespacevisualization"
+            name="State Space Visualization View"
+            restorable="false">
+      </view>
+
+ <!--
+      <view
+            allowMultiple="true"
+            category="de.hhu.stups.prob"
+            class="de.prob.ui.console.WorksheetView"
+            icon="icons/star.png"
+            id="de.prob.ui.worksheet"
+            name="Worksheet"
+            restorable="true">
+      </view>
+  
+      <view
+            allowMultiple="true"
+            category="de.hhu.stups.prob"
+            class="de.prob.ui.bmsview.BmsRunView"
+            icon="icons/bms.png"
+            id="de.prob.ui.views.bmsrun"
+            name="BMotion Studio View"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="true"
+            category="de.hhu.stups.prob"
+            class="de.prob.ui.bmsview.BmsEditView"
+            icon="icons/bms.png"
+            id="de.prob.ui.views.bmsedit"
+            name="BMotion Studio Editor"
+            restorable="true">
+      </view>
+
+-->
+
+
+   </extension>
+  <extension
+        point="org.eclipse.ui.activities">
+     <activity
+           id="de.prob2.ui.eclipse.hiddenviews"
+           name="Hidden Views">
+     </activity>
+     <activityPatternBinding
+           activityId="de.prob2.ui.eclipse.hiddenviews"
+           isEqualityPattern="true"
+           pattern="de.prob2.ui.eclipse/de.prob2.ui.eclipse.groovyconsole">
+     </activityPatternBinding>
+     <activityPatternBinding
+           activityId="de.prob2.ui.eclipse.hiddenviews"
+           isEqualityPattern="true"
+           pattern="de.prob2.ui.eclipse/de.prob.ui.views.formulavisualization">
+     </activityPatternBinding>
+     <activityPatternBinding
+           activityId="de.prob2.ui.eclipse.hiddenviews"
+           isEqualityPattern="true"
+           pattern="de.prob2.ui.eclipse/de.prob.ui.views.valueovertimevisualization">
+     </activityPatternBinding>
+     <activityPatternBinding
+           activityId="de.prob2.ui.eclipse.hiddenviews"
+           isEqualityPattern="true"
+           pattern="de.prob2.ui.eclipse/de.prob.ui.views.statespacevisualization">
+     </activityPatternBinding>
+  </extension>
+
+
+   <extension
+         point="org.eclipse.ui.services">
+      <sourceProvider
+            provider="de.prob2.ui.eclipse.services.TraceActiveProvider">
+         <variable
+               name="de.prob.ui.trace.forward_service"
+               priorityLevel="workbench">
+         </variable>
+         <variable
+               name="de.prob.ui.trace.backward_service"
+               priorityLevel="workbench">
+         </variable>
+      </sourceProvider>
+      <sourceProvider
+            provider="de.prob2.ui.eclipse.services.ModelLoadedProvider">
+         <variable
+               name="de.prob.ui.model_loaded"
+               priorityLevel="workbench">
+         </variable>
+      </sourceProvider>
+   </extension> 
+
+
+</plugin>

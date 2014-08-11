@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ProB 2.0 Generic Eclipse UI
+Bundle-SymbolicName: de.prob2.ui.eclipse;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.prob2.ui.eclipse.Activator
+Bundle-Vendor: HHU - Stups Group
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ at.bestsolution.efxclipse.runtime.javafx;bundle-version="2.2.0",
+ de.prob2.kernel.bundle;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Export-Package: de.prob2.ui.eclipse

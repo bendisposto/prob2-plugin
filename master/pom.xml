@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.prob2</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>../de.prob2.kernel.bundle</module>
+    <module>../de.prob2.ui.eclipse</module>
+    <module>../de.prob2.ui.rodin</module>
+    <module>../de.prob2.ui.eclipse.feature</module>
+    <module>../de.prob2.ui.rodin.feature</module>
+    <module>../de.prob2.updatesite</module>
+  </modules>
+
+  <properties>
+    <tycho.version>0.21.0</tycho.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>indigo</id>
+      <url>http://download.eclipse.org/releases/indigo</url>
+      <layout>p2</layout>
+    </repository>
+
+    <repository>
+      <id>rodincore</id>
+      <url>http://rodin-b-sharp.sourceforge.net/core-updates</url>
+      <layout>p2</layout>
+    </repository>
+
+    <repository>
+      <id>rodinupdate</id>
+      <url>http://rodin-b-sharp.sourceforge.net/updates</url>
+      <layout>p2</layout>
+    </repository>
+
+    <repository>
+      <id>fxeclipse</id>
+      <url>http://downloads.efxclipse.org/p2-repos/releases/latest</url>
+      <layout>p2</layout>
+    </repository>
+
+    <repository>
+      <id>cobra</id>
+      <url>http://cobra.cs.uni-duesseldorf.de/artifactory/repo/</url>
+    </repository>
+
+  </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <configuration>
+          <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+
+</project> 
