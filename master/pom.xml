@@ -37,11 +37,11 @@
       <layout>p2</layout>
     </repository>
 
-    <repository>
+    <!-- <repository>
       <id>fxeclipse</id>
       <url>http://downloads.efxclipse.org/p2-repos/releases/latest</url>
       <layout>p2</layout>
-    </repository>
+    </repository> -->
 
     <repository>
       <id>cobra</id>
