@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.prob2.ui.eclipse.feature"
-      label="ProB 2.0 Generic Eclipse UI"
+      label="ProB 2.0 Generic Eclipse UI (required)"
       version="1.0.0.qualifier"
       provider-name="HHU - Stups Group">
 
