@@ -12,7 +12,7 @@ public class BrowserView extends ViewPart implements IRefreshListener {
 
 	private final int port;
 	private Composite canvas;
-	private Object browser;
+	private Browser browser;
 	protected String url;
 
 	public BrowserView(String url) {
@@ -26,8 +26,6 @@ public class BrowserView extends ViewPart implements IRefreshListener {
 	 */
 	@Override
 	public void createPartControl(final Composite parent) {
-
-		String force = System.getProperty("enforceJavaFX");
 		createSWTBrowser(parent);
 	}
 
@@ -39,25 +37,13 @@ public class BrowserView extends ViewPart implements IRefreshListener {
 	}
 
 	public void refresh() {
-		if (browser instanceof Browser) {
-			((Browser) browser).refresh();
-			return;
-		}
-		if (browser instanceof javafx.scene.web.WebEngine) {
-			((javafx.scene.web.WebEngine) browser).reload();
-		}
+		browser.refresh();
 	}
 
 	public void load(String url) {
 		if (url != null) {
-			if (browser instanceof Browser) {
-				((Browser) browser).setUrl("http://localhost:" + port + "/"
-						+ url);
-				return;
-			} else if (browser instanceof javafx.scene.web.WebEngine) {
-				((javafx.scene.web.WebEngine) browser).load("http://localhost:"
-						+ port + "/" + url);
-			}
+			browser.setUrl("http://localhost:" + port + "/" + url);
+
 		}
 	}
 
