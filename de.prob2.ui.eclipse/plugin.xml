@@ -34,6 +34,36 @@
                     value="de.prob.ui.views.statespacevisualization">
                   </parameter>
            </command>
+           <separator
+                 name="de.prob2.ui.eclipse.separator2"
+                 visible="true">
+           </separator>
+           <command
+                 commandId="de.prob2.ui.eclipse.openView"
+                 label="Open BMS Visualization"
+                 style="push">
+              <parameter
+                    name="de.prob2.ui.eclipse.views.id"
+                    value="de.prob2.ui.views.bms">
+              </parameter>
+              <parameter
+                    name="de.prob2.ui.eclipse.file"
+                    value="true">
+              </parameter>
+           </command>
+           <command
+                 commandId="de.prob2.ui.eclipse.openView"
+                 label="Open BMS Editor"
+                 style="push">
+              <parameter
+                    name="de.prob2.ui.eclipse.views.id"
+                    value="de.prob2.ui.views.bmseditor">
+              </parameter>
+              <parameter
+                    name="de.prob2.ui.eclipse.file"
+                    value="true">
+              </parameter>
+           </command>
         </menuContribution>
         <menuContribution
               allPopups="false"
@@ -85,6 +115,11 @@
                id="de.prob2.ui.eclipse.views.id"
                name="View Id"
                optional="false">
+         </commandParameter>
+         <commandParameter
+               id="de.prob2.ui.eclipse.file"
+               name="fileselector"
+               optional="true">
          </commandParameter>
       </command>
       <command
@@ -189,6 +224,24 @@
             restorable="false">
       </view>
       <view
+            allowMultiple="true"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.BMSView"
+            icon="icons/bms.png"
+            id="de.prob2.ui.views.bms"
+            name="Show BMS Visualisation"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="true"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.BMSEditor"
+            icon="icons/bms.png"
+            id="de.prob2.ui.views.bmseditor"
+            name="Show BMS Editor"
+            restorable="true">
+      </view>
+      <view
             category="de.prob2"
             class="de.prob2.ui.eclipse.views.BugReport"
             icon="icons/sample.gif"
@@ -255,6 +308,16 @@
            activityId="de.prob2.ui.eclipse.hiddenviews"
            isEqualityPattern="true"
            pattern="de.prob2.ui.eclipse/de.prob.ui.views.statespacevisualization">
+     </activityPatternBinding>
+     <activityPatternBinding
+           activityId="de.prob2.ui.eclipse.hiddenviews"
+           isEqualityPattern="true"
+           pattern="de.prob2.ui.eclipse/de.prob2.ui.eclipse.bms">
+     </activityPatternBinding>
+     <activityPatternBinding
+           activityId="de.prob2.ui.eclipse.hiddenviews"
+           isEqualityPattern="true"
+           pattern="de.prob2.ui.eclipse/de.prob2.ui.eclipse.bmseditor">
      </activityPatternBinding>
   </extension>
 

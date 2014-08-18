@@ -32,7 +32,9 @@ public class BrowserView extends ViewPart implements IRefreshListener {
 	private void createSWTBrowser(Composite parent) {
 		Browser b = new Browser(parent, SWT.NONE);
 		this.browser = b;
-		load(getUrl());
+		String u = getUrl();
+		if (u != null && !u.isEmpty())
+			load(u);
 		canvas = b;
 	}
 
@@ -41,7 +43,7 @@ public class BrowserView extends ViewPart implements IRefreshListener {
 	}
 
 	public void load(String url) {
-		if (url == null) {
+		if (url == null || url.isEmpty()) {
 			// FIXME log error?
 			return;
 		}
