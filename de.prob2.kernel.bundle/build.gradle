@@ -17,8 +17,7 @@ repositories {
 }
 
 dependencies {
-	compile 'org.codehaus.groovy:groovy-all:2.3.0' // Apache Licence 2.0
-    compile(group: 'javafx', name: 'javafx.mvn', version: '2.2.0-SNAPSHOT')
+    compile 'org.codehaus.groovy:groovy-all:2.3.0' // Apache Licence 2.0
     runtime group: "de.prob", name: "de.prob.core.kernel", version: "2.0.0-milestone-15-SNAPSHOT" , changing: true
 }
 
