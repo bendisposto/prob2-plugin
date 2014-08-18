@@ -264,7 +264,43 @@
                priorityLevel="workbench">
          </variable>
       </sourceProvider>
-   </extension> 
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.prob2.ui.eclipse.PerspectiveFactory"
+            icon="icons/prob.png"
+            id="de.prob2.perspective"
+            name="ProB">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eventb.ui.perspective.eventb">
+         <perspectiveShortcut
+               id="de.prob2.perspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eventb.ui.perspective.proving">
+         <perspectiveShortcut
+               id="de.prob2.perspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="de.prob2.perspective">
+         <perspectiveShortcut
+               id="org.eventb.ui.perspective.eventb">
+         </perspectiveShortcut>
+         <perspectiveShortcut
+               id="org.eventb.ui.perspective.proving">
+         </perspectiveShortcut>
+         <perspectiveShortcut
+               id="org.eclipse.ui.resourcePerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+   </extension>
 
 
 </plugin>
