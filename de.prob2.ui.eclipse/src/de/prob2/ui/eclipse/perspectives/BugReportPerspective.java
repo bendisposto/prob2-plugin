@@ -2,9 +2,6 @@ package de.prob2.ui.eclipse.perspectives;
 
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.WorkbenchException;
 
 public class BugReportPerspective implements IPerspectiveFactory {
 
