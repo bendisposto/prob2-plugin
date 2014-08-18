@@ -109,14 +109,14 @@
             class="de.prob2.ui.eclipse.views.CurrentTraceView"
             icon="icons/sample.gif"
             id="de.prob2.ui.eclipse.currenttrace"
-            name="Current Trace">
+            name="Event Trace">
       </view>
       <view
             category="de.prob2"
             class="de.prob2.ui.eclipse.views.AnimationsView"
             icon="icons/sample.gif"
             id="de.prob2.ui.eclipse.animations"
-            name="Current Animations">
+            name="Running Animations">
       </view>
       
       <view
