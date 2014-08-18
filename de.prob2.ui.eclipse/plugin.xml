@@ -58,14 +58,29 @@
               </parameter>
            </command>
         </menuContribution>
+        <menuContribution
+              allPopups="false"
+              locationURI="menu:contact:bugs">
+           <command
+                 commandId="de.prob2.ui.eclipse.openBugReport"
+                 label="Submit Bugreport"
+                 style="push">
+           </command>
+        </menuContribution>
    </extension>
 
 <extension
          point="org.eclipse.ui.handlers">      
       <handler
-            commandId="de.prob2.ui.eclipse.openView.url">
+            commandId="de.prob2.ui.eclipse.openView">
          <class
                class="de.prob2.ui.eclipse.handlers.OpenViewHandler">
+         </class>
+      </handler>
+      <handler
+            commandId="de.prob2.ui.eclipse.openBugReport">
+         <class
+               class="de.prob2.ui.eclipse.handlers.OpenBugReportPerspectiveHandler">
          </class>
       </handler>
    </extension>
@@ -74,7 +89,6 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="de.prob2.ui.eclipse.handlers.OpenViewHandler"
             id="de.prob2.ui.eclipse.openView"
             name="Open View">
          <commandParameter
@@ -82,6 +96,10 @@
                name="View Id"
                optional="false">
          </commandParameter>
+      </command>
+      <command
+            id="de.prob2.ui.eclipse.openBugReport"
+            name="Open Bugreport Perspective">
       </command>
    </extension>
   <extension
@@ -180,6 +198,13 @@
             name="State Space Visualization View"
             restorable="false">
       </view>
+      <view
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.BugReport"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.bugreport"
+            name="Submit Bugreport">
+      </view>
 
  <!--
       <view
@@ -268,10 +293,16 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="de.prob2.ui.eclipse.PerspectiveFactory"
+            class="de.prob2.ui.eclipse.perspectives.ProBPerspective"
             icon="icons/prob.png"
             id="de.prob2.perspective"
             name="ProB">
+      </perspective>
+      <perspective
+            class="de.prob2.ui.eclipse.perspectives.BugReportPerspective"
+            icon="icons/sample.gif"
+            id="de.prob2.bugreport"
+            name="Submit Bugreport">
       </perspective>
    </extension>
    <extension
@@ -290,6 +321,21 @@
       </perspectiveExtension>
       <perspectiveExtension
             targetID="de.prob2.perspective">
+         <perspectiveShortcut
+               id="org.eventb.ui.perspective.eventb">
+         </perspectiveShortcut>
+         <perspectiveShortcut
+               id="org.eventb.ui.perspective.proving">
+         </perspectiveShortcut>
+         <perspectiveShortcut
+               id="org.eclipse.ui.resourcePerspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="de.prob2.bugreport">
+         <perspectiveShortcut
+               id="de.prob2.perspective">
+         </perspectiveShortcut>
          <perspectiveShortcut
                id="org.eventb.ui.perspective.eventb">
          </perspectiveShortcut>
