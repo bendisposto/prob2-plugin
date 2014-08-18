@@ -41,9 +41,14 @@ public class BrowserView extends ViewPart implements IRefreshListener {
 	}
 
 	public void load(String url) {
-		if (url != null) {
+		if (url == null) {
+			// FIXME log error?
+			return;
+		}
+		if (url.startsWith("http://")) {
+			browser.setUrl(url);
+		} else {
 			browser.setUrl("http://localhost:" + port + "/" + url);
-
 		}
 	}
 
