@@ -6,16 +6,6 @@
          point="org.eclipse.ui.menus">
         <menuContribution
               allPopups="false"
-              locationURI="popup:de.prob.ui.groovybinding">
-           <command
-                 commandId="de.prob.ui.remove_variable"
-                 icon="icons/rem_co.gif"
-                 label="Remove Variable"
-                 style="push">
-           </command>
-        </menuContribution>
-        <menuContribution
-              allPopups="false"
               locationURI="menu:analyze">
            <command
                  commandId="de.prob2.ui.eclipse.openView"
