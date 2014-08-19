@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.prob2.rodin.symbolic.feature"
-      label="ProB 2.0 Symbolic evaluation support"
+      label="ProB 2.0 Symbolic evaluation support (optional)"
       version="1.0.0.qualifier"
       provider-name="HHU - Stups Group">
 
