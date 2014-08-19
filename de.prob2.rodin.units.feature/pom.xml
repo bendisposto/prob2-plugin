@@ -9,7 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
+  <artifactId>de.prob2.rodin.units.feature</artifactId>
+  <packaging>eclipse-feature</packaging>
 
-  <artifactId>de.prob2.ui.eclipse</artifactId>
-  <packaging>eclipse-plugin</packaging>
 </project> 

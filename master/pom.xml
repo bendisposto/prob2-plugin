@@ -10,6 +10,8 @@
     <module>../de.prob2.kernel.bundle</module>
     <module>../de.prob2.ui.eclipse</module>
     <module>../de.prob2.ui.rodin</module>
+    <module>../de.prob2.rodin.units</module>
+    <module>../de.prob2.rodin.units.feature</module>
     <module>../de.prob2.ui.eclipse.feature</module>
     <module>../de.prob2.ui.rodin.feature</module>
     <module>../de.prob2.updatesite</module>

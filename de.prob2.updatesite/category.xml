@@ -6,6 +6,9 @@
    <feature url="features/de.prob2.ui.rodin.feature_1.0.0.qualifier.jar" id="de.prob2.ui.rodin.feature" version="1.0.0.qualifier">
       <category name="de.prob2"/>
    </feature>
+   <feature url="features/de.prob2.rodin.units.feature_1.0.0.qualifier.jar" id="de.prob2.rodin.units.feature" version="1.0.0.qualifier">
+      <category name="de.prob2"/>
+   </feature>
    <category-def name="de.prob2" label="ProB 2.0">
       <description>
          ProB2 is an animator and model checker for the B-Method. It allows fully automatic animation of many B specifications, and can be used to systematically check a specification for errors.
