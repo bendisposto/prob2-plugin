@@ -41,14 +41,10 @@
                label="ProB"
                mnemonic="P">
             <menu
-                  id="contact"
-                  label="Contact"
-                  mnemonic="C">
+                  id="analyze"
+                  label="Visualize">
                <separator
-                     name="bugs">
-               </separator>
-               <separator
-                     name="contact">
+                     name="analyze">
                </separator>
             </menu>
             <menu
@@ -59,10 +55,14 @@
                </separator>
             </menu>
             <menu
-                  id="analyze"
-                  label="Analyze">
+                  id="contact"
+                  label="Contact"
+                  mnemonic="C">
                <separator
-                     name="analyze">
+                     name="bugs">
+               </separator>
+               <separator
+                     name="contact">
                </separator>
             </menu>
             <menu
