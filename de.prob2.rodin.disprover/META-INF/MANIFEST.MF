@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ProB 2.0 Disprover
+Bundle-SymbolicName: de.prob2.rodin.disprover;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Heinrich-Heine University Dusseldorf
+Require-Bundle: org.eclipse.core.runtime,
+ org.eventb.ui;bundle-version="[3.0.0,3.1.0)",
+ org.eclipse.ui;bundle-version="[3.5.0,4.0.0)",
+ org.eventb.core.ast;bundle-version="[3.0.0,3.2.0)",
+ org.eventb.core.seqprover;bundle-version="[3.0.0,3.2.0)",
+ org.eclipse.osgi,
+ org.rodinp.core;bundle-version="[1.7.0,1.8.0)",
+ org.eventb.core;bundle-version="[3.0.0,3.2.0)",
+ de.prob2.kernel.bundle;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
+Bundle-Activator: de.prob2.rodin.disprover.ui.DisproverActivator

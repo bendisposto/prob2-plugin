@@ -18,8 +18,9 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.0' // Apache Licence 2.0
-    runtime group: "de.prob", name: "de.prob.core.kernel", version: "2.0.0-milestone-15-SNAPSHOT" , changing: true
-}
+    runtime('de.prob2:de.prob2.kernel:2.0.0-milestone-16-SNAPSHOT') 
+		
+	}
 
 
 

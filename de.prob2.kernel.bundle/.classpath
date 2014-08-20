@@ -14,10 +14,11 @@
 	<classpathentry exported="true" kind="lib" path="lib/colt-1.2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-cli-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-codec-1.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-io-2.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-lang-2.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/compiler-0.8.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/concurrent-1.3.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/de.prob.core.kernel-2.0.0-milestone-15-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/de.prob2.kernel-2.0.0-milestone-16-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/groovy-all-2.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/gson-1.7.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/guava-14.0.1.jar"/>
@@ -51,7 +52,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/ltl-dsl-1.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/ltlparser-2.4.22-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.abego.treelayout.core-1.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.eventb.core.ast-2.6.0.r15029.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/parboiled-core-1.0.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/parboiled-java-1.0.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/parserbase-2.4.22-SNAPSHOT.jar"/>

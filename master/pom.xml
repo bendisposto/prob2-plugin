@@ -14,6 +14,8 @@
     <module>../de.prob2.rodin.units.feature</module>
     <module>../de.prob2.rodin.symbolic</module>
     <module>../de.prob2.rodin.symbolic.feature</module>
+    <module>../de.prob2.rodin.disprover</module>
+    <module>../de.prob2.rodin.disprover.feature</module>
     <module>../de.prob2.ui.eclipse.feature</module>
     <module>../de.prob2.ui.rodin.feature</module>
     <module>../de.prob2.updatesite</module>

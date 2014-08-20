@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eventb.core.seqprover.reasoners">
+      <reasoner
+            class="de.prob2.rodin.disprover.core.DisproverReasoner"
+            id="disproverReasoner"
+            name="%reasoner.name">
+      </reasoner>
+   </extension>
+   <extension
+         point="org.eventb.core.seqprover.autoTactics">
+      <autoTactic
+            class="de.prob2.rodin.disprover.core.internal.DisproverAutoTactic"
+            description="%autotactic.desc"
+            id="disproverTactic"
+            name="%autotactic.name">
+      </autoTactic>
+   </extension>
+     <extension
+         point="org.eventb.ui.proofTactics">
+  <!--    <tactic
+            dropdown="de.prob2.rodin.disprover.DisproverDropdown"
+            icon="icons/disprover-relevant-context.png"
+            id="de.prob2.rodin.disprover.disproverRelevantContextTactic"
+            interrupt="true"
+            name="%tactic.disprover.name"
+            priority="9"
+            tacticProvider="de.prob2.rodin.disprover.DisproverRelevantHypothesesAndContextTacticProvider"
+            target="global"
+            tooltip="%tactic.disprover.tooltip-relevant-context" />
+     -->       
+      <dropdown
+            id="de.prob2.rodin.disprover.dropdown"
+            name="ProB (Dis-)Prover"
+            priority="10"
+            toolbar="org.eventb.ui.sequentToolbar">
+      </dropdown>
+      <tactic
+            dropdown="de.prob2.rodin.disprover.dropdown"
+            icon="icons/disprover-all.png"
+            id="de.prob2.rodin.disprover.disproverTactic"
+            interrupt="true"
+            name="%tactic.disprover.name"
+            priority="10"
+            tacticProvider="de.prob2.rodin.disprover.ui.DisproverTacticProvider"
+            target="global"
+            tooltip="%tactic.disprover.tooltip">
+      </tactic>
+      <tactic
+            dropdown="de.prob2.rodin.disprover.dropdown"
+            icon="icons/disprover-all.png"
+            id="de.prob2.rodin.disprover.disproverExtendedTimeoutTactic"
+            interrupt="true"
+            name="%tactic.disprover.extended_timeout.name"
+            priority="10"
+            tacticProvider="de.prob2.rodin.disprover.ui.DisproverExtendedTimeoutTacticProvider"
+            target="global"
+            tooltip="%tactic.disprover.extended_timeout.tooltip">
+      </tactic>
+   <!--      <tactic
+            dropdown="de.prob2.rodin.disprover.DisproverDropdown"
+            icon="icons/disprover-config.png"
+            id="de.prob2.rodin.disprover.disproverConfigTactic"
+            interrupt="true"
+            name="%tactic.disprover.name"
+            priority="9"
+            tacticProvider="de.prob2.rodin.disprover.DisproverConfigTacticProvider"
+            target="global"
+            tooltip="%tactic.disprover.tooltip-config" />
+      <tactic
+            dropdown="de.prob2.rodin.disprover.DisproverDropdown"
+            icon="icons/disprover-relevant.png"
+            id="de.prob2.rodin.disprover.disproverRelevantHypothesesTactic"
+            interrupt="true"
+            name="%tactic.disprover.name"
+            priority="9"
+            tacticProvider="de.prob2.rodin.disprover.DisproverRelevantHypothesesTacticProvider"
+            target="global"
+            tooltip="%tactic.disprover.tooltip-relevant" /> -->
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="probpreferences"
+            class="de.prob2.rodin.disprover.ui.DisproverPreferences"
+            id="de.prob.ui.probclassic"
+            name="ProB (Dis-)Prover">
+      </page>
+   </extension>
+   
+   
+</plugin>
