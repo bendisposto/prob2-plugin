@@ -9,18 +9,16 @@ import de.prob.prolog.output.IPrologTermOutput;
 
 final class DisproverLoadCommand extends ComposedCommand {
 	private final AEventBContextParseUnit context;
-	private final IEventBProject project;
 
 	public DisproverLoadCommand(IEventBProject project,
 			AEventBContextParseUnit context) {
 		this.context = context;
-		this.project = project;
 	}
 
 	@Override
 	public void writeCommand(final IPrologTermOutput pto) {
 		ASTProlog modelAst = new ASTProlog(pto, null);
-		boolean theoryIsUsed;
+		// boolean theoryIsUsed;
 
 		// no proof information but the theories if used
 		// try {

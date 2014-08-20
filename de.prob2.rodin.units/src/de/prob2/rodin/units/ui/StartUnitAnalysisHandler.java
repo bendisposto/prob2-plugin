@@ -40,7 +40,6 @@ import de.prob.prolog.term.CompoundPrologTerm;
 import de.prob.prolog.term.ListPrologTerm;
 import de.prob.prolog.term.PrologTerm;
 import de.prob.units.UnitAnalysis;
-import de.prob.webconsole.ServletContextListener;
 import de.prob2.rodin.units.pragmas.InferredUnitPragmaAttribute;
 import de.prob2.rodin.units.pragmas.UnitPragmaAttribute;
 import de.prob2.rodin.units.problems.IncorrectUnitDefinitionMarker;

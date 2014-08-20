@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.eventb.core.ast.FormulaFactory;
 import org.eventb.core.ast.ITypeEnvironment;
 import org.eventb.core.ast.ITypeEnvironment.IIterator;
-import org.eventb.core.ast.Predicate;
 import org.eventb.core.seqprover.IProverSequent;
 
 import de.be4.classicalb.core.parser.node.AAxiomsContextClause;
@@ -23,19 +21,16 @@ import de.be4.classicalb.core.parser.node.PPredicate;
 import de.be4.classicalb.core.parser.node.PSet;
 import de.be4.classicalb.core.parser.node.TIdentifierLiteral;
 import de.prob.animator.domainobjects.EventB;
-import de.prob.formula.TranslationVisitor;
 import de.prob2.rodin.disprover.core.internal.DisproverIdentifier;
 
 public class DisproverContextCreator {
 	public static AEventBContextParseUnit createDisproverContext(
 			IProverSequent sequent, Set<EventB> theHyps) {
-		return createDisproverContext(sequent.typeEnvironment(),
-				sequent.getFormulaFactory(), theHyps);
+		return createDisproverContext(sequent.typeEnvironment(), theHyps);
 	}
 
 	public static AEventBContextParseUnit createDisproverContext(
-			ITypeEnvironment typeEnvironment, FormulaFactory ff,
-			Set<EventB> theHyps) {
+			ITypeEnvironment typeEnvironment, Set<EventB> theHyps) {
 		AEventBContextParseUnit context = new AEventBContextParseUnit();
 		context.setName(new TIdentifierLiteral("DisproverContext"));
 
@@ -59,7 +54,7 @@ public class DisproverContextCreator {
 
 			DisproverIdentifier id = new DisproverIdentifier(
 					typeIterator.getName(), typeIterator.getType(),
-					typeIterator.isGivenSet(), ff);
+					typeIterator.isGivenSet());
 
 			// sets are added to the context, vars to the model
 			if (id.isGivenSet()) {

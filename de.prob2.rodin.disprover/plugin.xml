@@ -83,7 +83,6 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            category="probpreferences"
             class="de.prob2.rodin.disprover.ui.DisproverPreferences"
             id="de.prob.ui.probclassic"
             name="ProB (Dis-)Prover">

@@ -24,11 +24,8 @@ import org.rodinp.core.RodinDBException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.be4.classicalb.core.parser.analysis.prolog.ASTProlog;
 import de.be4.classicalb.core.parser.node.AEventBContextParseUnit;
 import de.prob.animator.domainobjects.EventB;
-import de.prob.formula.TranslationVisitor;
-import de.prob.prolog.output.PrologTermStringOutput;
 import de.prob2.rodin.disprover.core.internal.DisproverCommand;
 import de.prob2.rodin.disprover.core.internal.ICounterExample;
 import de.prob2.rodin.disprover.core.translation.DisproverContextCreator;
@@ -128,15 +125,6 @@ public class DisproverReasoner implements IReasoner {
 				.getExtensions();
 		EventB eventB = new EventB(string, extensions);
 		return eventB;
-	}
-
-	private String predicateToProlog(Predicate pred) {
-		PrologTermStringOutput pto = new PrologTermStringOutput();
-		TranslationVisitor v = new TranslationVisitor();
-		pred.accept(v);
-		ASTProlog p = new ASTProlog(pto, null);
-		v.getPredicate().apply(p);
-		return pto.toString();
 	}
 
 	/**

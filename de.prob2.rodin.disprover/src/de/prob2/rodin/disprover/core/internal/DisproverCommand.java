@@ -3,14 +3,11 @@ package de.prob2.rodin.disprover.core.internal;
 import java.util.Set;
 
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eventb.core.IEventBProject;
-import org.eventb.core.ast.Predicate;
 import org.eventb.core.seqprover.IProofMonitor;
 import org.osgi.service.prefs.Preferences;
 
-import de.be4.classicalb.core.parser.analysis.prolog.ASTProlog;
 import de.be4.classicalb.core.parser.node.AEventBContextParseUnit;
 import de.prob.Main;
 import de.prob.animator.IAnimator;
@@ -18,7 +15,6 @@ import de.prob.animator.command.ComposedCommand;
 import de.prob.animator.command.SetPreferenceCommand;
 import de.prob.animator.command.StartAnimationCommand;
 import de.prob.animator.domainobjects.EventB;
-import de.prob.formula.TranslationVisitor;
 import de.prob.parser.ISimplifiedROMap;
 import de.prob.prolog.output.IPrologTermOutput;
 import de.prob.prolog.term.ListPrologTerm;
