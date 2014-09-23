@@ -16,15 +16,24 @@ repositories {
 	}
 }
 
+configurations.all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
+
+
 dependencies {
+
     compile 'org.codehaus.groovy:groovy-all:2.3.0' // Apache Licence 2.0
-    runtime('de.prob2:de.prob2.kernel:2.0.0-milestone-16-SNAPSHOT') 
-		
+    runtime group: "de.prob2", name: "de.prob2.kernel", version: "2.0.0-milestone-17-SNAPSHOT" , changing: true
 	}
 
+task cleanLibDir(type: Delete) {  
+    FileTree tree = fileTree (dir: "./lib/");  
+    tree.exclude "dont_delete.txt"  
+    tree.each { File file ->    
+        delete(file)  
+    }  
+}
 
-
-task collectDependencies(type: Copy) {
+task collectDependencies(dependsOn: cleanLibDir, type: Copy) {
 	from configurations.compile
 	from configurations.runtime
 	into "./lib/"
