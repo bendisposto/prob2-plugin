@@ -6,9 +6,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
 import de.prob.webconsole.WebConsole;
-import de.prob.webconsole.servlets.visualizations.IRefreshListener;
 
-public class BrowserView extends ViewPart implements IRefreshListener {
+public class BrowserView extends ViewPart {
 
 	private final int port;
 	private Composite canvas;
@@ -38,9 +37,9 @@ public class BrowserView extends ViewPart implements IRefreshListener {
 		canvas = b;
 	}
 
-	public void refresh() {
-		browser.refresh();
-	}
+//	public void refresh() {
+//		browser.refresh();
+//	}
 
 	public void load(String url) {
 		if (url == null || url.isEmpty()) {
