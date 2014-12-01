@@ -26,16 +26,11 @@ public class OpenViewHandler extends AbstractHandler implements IHandler {
 				.getParameter("de.prob2.ui.eclipse.file").toLowerCase().trim());
 
 		if (file) {
-			// File standard dialog
 			FileDialog fileDialog = new FileDialog(Display.getDefault()
 					.getActiveShell());
-			// Set the text
 			fileDialog.setText("Select File");
-			// Set filter on .txt files
 			fileDialog.setFilterExtensions(new String[] { "*.html" });
-			// Put in a readable name for the filter
 			fileDialog.setFilterNames(new String[] { "Html Files (*.html)" });
-			// Open Dialog and save result of selection
 			selected = fileDialog.open();
 		}
 
