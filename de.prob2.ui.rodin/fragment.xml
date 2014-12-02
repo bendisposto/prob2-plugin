@@ -169,6 +169,15 @@
                   value="de.prob.ui.eventb.BMotionStudioRodinFile">
             </instanceof>
          </possibleChildren>
+         <actionProvider
+               class="de.prob.ui.eventb.BMotionStudioActionProvider"
+               id="de.prob.ui.eventb.navigatorAction"
+               priority="normal">
+            <enablement>
+               <instanceof value="de.prob.ui.eventb.BMotionStudioRodinFile">
+               </instanceof>
+            </enablement>
+         </actionProvider>         
       </navigatorContent>
    </extension>
    <extension
