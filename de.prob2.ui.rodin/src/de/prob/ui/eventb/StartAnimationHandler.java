@@ -17,6 +17,7 @@ import com.google.inject.Injector;
 
 import de.prob.Main;
 import de.prob.model.eventb.EventBModel;
+import de.prob.scripting.Api;
 import de.prob.scripting.EventBFactory;
 import de.prob.statespace.AnimationSelector;
 import de.prob.statespace.StateSpace;
@@ -47,7 +48,7 @@ public class StartAnimationHandler extends AbstractHandler {
 				.getInstance(EventBFactory.class);
 
 		EventBModel model = instance.load(fileName,
-				new HashMap<String, String>(), true);
+				new HashMap<String, String>(), Api.getDEFAULT());
 
 		StateSpace s = model.getStateSpace();
 
