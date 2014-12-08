@@ -22,17 +22,6 @@ public class OpenViewHandler extends AbstractHandler implements IHandler {
 		String id = event.getParameter("de.prob2.ui.eclipse.views.id");
 		String selected = "";
 
-		boolean file = "true".equals(event
-				.getParameter("de.prob2.ui.eclipse.file").toLowerCase().trim());
-
-		if (file) {
-			FileDialog fileDialog = new FileDialog(Display.getDefault()
-					.getActiveShell());
-			fileDialog.setText("Select File");
-			fileDialog.setFilterExtensions(new String[] { "*.html" });
-			fileDialog.setFilterNames(new String[] { "Html Files (*.html)" });
-			selected = fileDialog.open();
-		}
 
 		IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
