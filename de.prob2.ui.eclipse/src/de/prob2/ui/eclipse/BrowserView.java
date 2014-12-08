@@ -51,6 +51,7 @@ public class BrowserView extends ViewPart {
 		} else {
 			browser.setUrl("http://localhost:" + port + "/" + url);
 		}
+		VersionController.ensureInstalled();
 	}
 
 	protected String getUrl() {

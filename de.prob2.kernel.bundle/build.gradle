@@ -21,8 +21,8 @@ configurations.all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.0' // Apache Licence 2.0
-    runtime group: "de.prob2", name: "de.prob2.kernel", version: "2.0.0-milestone-20-SNAPSHOT" , changing: true
-	runtime group: "de.bmotion", name: "bmotion-prob", version: "1.2" , changing: true
+    runtime group: "de.prob2", name: "de.prob2.kernel", version: "2.0.0-milestone-20" , changing: true
+	runtime group: "de.bmotion", name: "bmotion-prob", version: "1.3-SNAPSHOT" , changing: true
 	}
 
 task cleanLibDir(type: Delete) {  
