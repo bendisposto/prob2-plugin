@@ -25,15 +25,6 @@
                     value="de.prob.ui.views.valueovertimevisualization">
                   </parameter>
            </command>
-           <command
-                 commandId="de.prob2.ui.eclipse.openView"
-                 label="Open State Space Visualization"
-                 style="push">
-                  <parameter
-                    name="de.prob2.ui.eclipse.views.id"
-                    value="de.prob.ui.views.statespacevisualization">
-                  </parameter>
-           </command>
            <separator
                  name="de.prob2.ui.eclipse.separator2"
                  visible="true">
@@ -191,15 +182,6 @@
       <view
             allowMultiple="true"
             category="de.prob2"
-            class="de.prob2.ui.eclipse.views.StateSpaceVizView"
-            icon="icons/sample.gif"
-            id="de.prob.ui.views.statespacevisualization"
-            name="State Space Visualization View"
-            restorable="false">
-      </view>
-      <view
-            allowMultiple="true"
-            category="de.prob2"
             class="de.prob2.ui.eclipse.views.BMSView"
             icon="icons/bms.png"
             id="de.prob2.ui.views.bms"
@@ -268,11 +250,6 @@
            activityId="de.prob2.ui.eclipse.hiddenviews"
            isEqualityPattern="true"
            pattern="de.prob2.ui.eclipse/de.prob.ui.views.valueovertimevisualization">
-     </activityPatternBinding>
-     <activityPatternBinding
-           activityId="de.prob2.ui.eclipse.hiddenviews"
-           isEqualityPattern="true"
-           pattern="de.prob2.ui.eclipse/de.prob.ui.views.statespacevisualization">
      </activityPatternBinding>
      <activityPatternBinding
            activityId="de.prob2.ui.eclipse.hiddenviews"
