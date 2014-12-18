@@ -64,7 +64,7 @@ public class StartAnimationHandler extends AbstractHandler {
 
 		System.gc();
 
-		final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
+	final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		IPerspectiveDescriptor activePerspective = workbenchWindow
 				.getActivePage().getPerspective();

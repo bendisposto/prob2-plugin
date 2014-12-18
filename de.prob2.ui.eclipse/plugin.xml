@@ -61,6 +61,14 @@
          <class
                class="de.prob2.ui.eclipse.handlers.OpenViewHandler">
          </class>
+     <enabledWhen>
+            <with
+                  variable="de.prob.ui.model_loaded">
+               <equals
+                     value="enabled">
+               </equals>
+            </with>
+         </enabledWhen>
       </handler>
       <handler
             commandId="de.prob2.ui.eclipse.openBugReport">
