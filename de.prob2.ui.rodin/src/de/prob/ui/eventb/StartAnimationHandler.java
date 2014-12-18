@@ -8,6 +8,11 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IPerspectiveDescriptor;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.WorkbenchException;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eventb.core.IEventBRoot;
 import org.rodinp.core.IRodinFile;
@@ -58,6 +63,23 @@ public class StartAnimationHandler extends AbstractHandler {
 		selector.addNewAnimation(h);
 
 		System.gc();
+
+		final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow();
+		IPerspectiveDescriptor activePerspective = workbenchWindow
+				.getActivePage().getPerspective();
+
+		Display.getCurrent().asyncExec(new Runnable() {
+			public void run() {
+				// switch perspective
+				try {
+					workbenchWindow.getWorkbench().showPerspective(
+							"de.prob2.perspective", workbenchWindow);
+				} catch (WorkbenchException e) {
+
+				}
+			}
+		});
 
 		return null;
 	}
