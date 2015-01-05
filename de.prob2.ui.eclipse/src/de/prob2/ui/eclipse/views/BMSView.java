@@ -1,10 +1,10 @@
 package de.prob2.ui.eclipse.views;
 
+import de.prob2.ui.eclipse.AbstractBrowserView;
 import de.prob2.ui.eclipse.Activator;
-import de.prob2.ui.eclipse.BrowserView;
 import de.prob2.ui.eclipse.handlers.IFileView;
 
-public class BMSView extends BrowserView implements IFileView {
+public class BMSView extends AbstractBrowserView implements IFileView {
 
 	public static String ID = "de.prob2.ui.views.bms";
 
@@ -16,10 +16,27 @@ public class BMSView extends BrowserView implements IFileView {
 	}
 
 	@Override
-	public void setFileName(String fn) {
+	public void setFileName(final String fn) {
 		if (fn != null) {
 			load("http://localhost:" + bmotionPort + "/bms" + fn);
 		}
+	}
+
+	@Override
+	public void load(final String url) {
+		if (url == null || url.isEmpty()) {
+			// FIXME log error?
+			return;
+		}
+
+		if (url.startsWith("http://")) {
+			browser.setUrl(url);
+		} else {
+			String theUrl = "http://localhost:" + port + "/" + url;
+			System.out.println("Loading: ###" + theUrl + "###");
+			browser.setUrl(theUrl);
+		}
+
 	}
 
 }
