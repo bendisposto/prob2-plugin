@@ -30,7 +30,7 @@ public class BrowserView extends AbstractBrowserView {
 			System.out.println("Loading: ###" + theUrl + "###");
 			browser.setUrl(theUrl);
 		}
-		VersionController.ensureInstalled();
+
 	}
 
 }
