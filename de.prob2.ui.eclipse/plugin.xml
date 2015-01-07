@@ -144,14 +144,6 @@
             name="BUnit Tests">
       </view>
       <view
-            category="de.prob2"
-            class="de.prob2.ui.eclipse.views.LogView"
-            icon="icons/sample.gif"
-            id="de.prob2.ui.eclipse.log"
-            name="Log View"
-            restorable="true">
-      </view>
-      <view
             allowMultiple="true"
             category="de.prob2"
             class="de.prob2.ui.eclipse.views.GroovyConsoleView"
