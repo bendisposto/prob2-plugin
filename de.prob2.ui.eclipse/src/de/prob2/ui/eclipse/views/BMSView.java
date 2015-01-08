@@ -1,5 +1,7 @@
 package de.prob2.ui.eclipse.views;
 
+import org.eclipse.ui.IMemento;
+
 import de.prob2.ui.eclipse.AbstractBrowserView;
 import de.prob2.ui.eclipse.Activator;
 import de.prob2.ui.eclipse.handlers.IFileView;
@@ -37,6 +39,11 @@ public class BMSView extends AbstractBrowserView implements IFileView {
 			browser.setUrl(theUrl);
 		}
 
+	}
+
+	@Override
+	public void saveState(final IMemento memento) {
+		// TODO Auto-generated method stub
 	}
 
 }

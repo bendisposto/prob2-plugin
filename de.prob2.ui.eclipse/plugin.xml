@@ -186,7 +186,7 @@
             icon="icons/bms.png"
             id="de.prob2.ui.views.bms"
             name="BMotion Studio"
-            restorable="true">
+            restorable="false">
       </view>
       <view
             category="de.prob2"
