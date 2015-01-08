@@ -26,7 +26,6 @@ public class Activator extends AbstractUIPlugin {
 
 	public static void runProB(final String... args) {
 		Main.restricted = false;
-		VersionController.ensureInstalled();
 		Runnable r = new Runnable() {
 			@Override
 			public void run() {
@@ -35,7 +34,6 @@ public class Activator extends AbstractUIPlugin {
 						@Override
 						public void run() {
 							Activator.ready = true;
-							VersionController.ensureInstalled();
 						}
 					});
 				} catch (Exception e) {
@@ -85,7 +83,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
 	 * )
@@ -99,7 +97,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
 	 * )
