@@ -18,12 +18,13 @@ public class VersionController {
 
 		if (version == null
 				|| !version.revision
-						.equals("244cf93baecc5e982793931baa704855200deea2")) {
+				.equals("244cf93baecc5e982793931baa704855200deea2")) {
 			Display display = Display.getDefault();
 			Shell shell = display.getActiveShell();
 			String dialogMessage = "You either have no ProB binaries installed in your home directory, or your binaries are incompatible."
 					+ " Press \"Ok\" to download a compatible version.\n"
-					+ "Make sure that you have a working internet connection.\n";
+					+ "Make sure that you have a working internet connection.\n"
+					+ "If you press \"Cancel\" we do not guarantee that ProB will work.";
 			MessageDialog popup = new MessageDialog(shell,
 					"Download ProB Binaries", null, dialogMessage,
 					MessageDialog.WARNING, new String[] { "Ok", "Cancel" }, 0);
