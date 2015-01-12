@@ -24,7 +24,6 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 		if (parentElement instanceof IProject) {
 
 			final IProject project = (IProject) parentElement;
-
 			IFolder bmotionFolder = project.getFolder("bmotion");
 			if (bmotionFolder.exists()) {
 
@@ -32,13 +31,13 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 					IResource[] children = bmotionFolder.members();
 					for (IResource rs : children) {
 						if (rs instanceof IContainer) {
-							IContainer subFolder = (IContainer) rs;
-							for (IResource rs2 : subFolder.members()) {
-								if (rs2.getFileExtension() != null
-										&& rs2.getName().equals("index.html")) {
-									res.add(new BMotionStudioRodinFile(rs));
-								}
+							IContainer pfolder = (IContainer) rs;
+							List<BMotionStudioRodinFile> files = new ArrayList<BMotionStudioRodinFile>();
+							for (IResource rs2 : pfolder.members()) {
+								files.add(new BMotionStudioRodinFile(rs2));
 							}
+							res.add(new BMotionStudioRodinProject(pfolder,
+									files));
 						}
 					}
 				} catch (CoreException e) {
@@ -47,9 +46,11 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 
 			}
 
+		} else if (parentElement instanceof BMotionStudioRodinProject) {
+			res.addAll(((BMotionStudioRodinProject) parentElement).getFiles());
 		}
 
-		return res.toArray(new BMotionStudioRodinFile[res.size()]);
+		return res.toArray(new Object[res.size()]);
 
 	}
 
@@ -59,7 +60,7 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 	}
 
 	public boolean hasChildren(final Object element) {
-		return false;
+		return element instanceof BMotionStudioRodinProject;
 	}
 
 	public Object[] getElements(final Object inputElement) {

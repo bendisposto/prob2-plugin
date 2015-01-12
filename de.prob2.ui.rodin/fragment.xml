@@ -18,7 +18,7 @@
                   <iterate
                         operator="or">
                      <instanceof
-                           value="de.prob.ui.eventb.BMotionStudioRodinFile">
+                           value="de.prob.ui.eventb.BMotionStudioRodinProject">
                      </instanceof>
                   </iterate>
                </with>
@@ -166,7 +166,7 @@
          </triggerPoints>
          <possibleChildren>
             <instanceof
-                  value="de.prob.ui.eventb.BMotionStudioRodinFile">
+                  value="de.prob.ui.eventb.BMotionStudioRodinProject">
             </instanceof>
          </possibleChildren>
          <actionProvider
@@ -174,8 +174,7 @@
                id="de.prob.ui.eventb.navigatorAction"
                priority="normal">
             <enablement>
-               <instanceof value="de.prob.ui.eventb.BMotionStudioRodinFile">
-               </instanceof>
+               <instanceof value="de.prob.ui.eventb.AbstractBMotionStudioRodinFile"/>
             </enablement>
          </actionProvider>         
       </navigatorContent>

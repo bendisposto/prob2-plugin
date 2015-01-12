@@ -6,20 +6,10 @@ import org.eclipse.core.resources.IResource;
  * @author Lukas Ladenberger
  * 
  */
-public class BMotionStudioRodinFile {
+public class BMotionStudioRodinFile extends AbstractBMotionStudioRodinFile {
 
-	private IResource resource;
-	
 	public BMotionStudioRodinFile(IResource resource) {
-		this.resource = resource;
-	}
-
-	public IResource getResource() {
-		return resource;
-	}
-
-	public void setResource(IResource resource) {
-		this.resource = resource;
+		super(resource);
 	}
 
 }
