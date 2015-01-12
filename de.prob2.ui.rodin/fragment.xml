@@ -191,6 +191,21 @@
          </includes>
       </viewerContentBinding>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="de.prob2.ui.rodin.bmsWizard"
+            name="BMotion Studio">
+      </category>
+      <wizard
+            category="de.prob2.ui.rodin.bmsCategory"
+            class="de.prob.ui.eventb.NewBMotionProjectWizard"
+            icon="icons/bms.png"
+            id="de.prob2.ui.rodin.newBMSVisualisation"
+            name="BMotion Studio Visualization"
+            project="false">
+      </wizard>
+   </extension>
    
    
    

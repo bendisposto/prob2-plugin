@@ -25,7 +25,6 @@ public class Activator extends AbstractUIPlugin {
 	public static BMotionServer bmotionServer;
 
 	public static void runProB(final String... args) {
-
 		Main.restricted = false;
 		Runnable r = new Runnable() {
 			@Override
@@ -54,7 +53,7 @@ public class Activator extends AbstractUIPlugin {
 				bmotionServer = ProBServerFactory.getServer(bmsArgs);
 				bmotionServer.setResourceResolver(new ResourceResolver() {
 					@Override
-					public URL resolve(URL url) {
+					public URL resolve(final URL url) {
 						URL newUrl = url;
 						try {
 							newUrl = FileLocator.resolve(url);
@@ -89,7 +88,8 @@ public class Activator extends AbstractUIPlugin {
 	 * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
 	 * )
 	 */
-	public void start(BundleContext context) throws Exception {
+	@Override
+	public void start(final BundleContext context) throws Exception {
 		super.start(context);
 		runProB("-s", "-local");
 		plugin = this;
@@ -102,14 +102,15 @@ public class Activator extends AbstractUIPlugin {
 	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
 	 * )
 	 */
-	public void stop(BundleContext context) throws Exception {
+	@Override
+	public void stop(final BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
 	}
 
 	/**
 	 * Returns the shared instance
-	 * 
+	 *
 	 * @return the shared instance
 	 */
 	public static Activator getDefault() {

@@ -28,8 +28,7 @@ public class BMotionLabelProvider implements ILabelProvider {
 	public String getText(final Object element) {
 
 		if (element instanceof BMotionStudioRodinFile)
-			return ((BMotionStudioRodinFile) element).getResource().getName()
-					.replace(".html", "");
+			return ((BMotionStudioRodinFile) element).getResource().getName();
 		return element.toString();
 
 	}

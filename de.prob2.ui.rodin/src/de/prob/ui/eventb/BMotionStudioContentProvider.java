@@ -3,6 +3,7 @@ package de.prob.ui.eventb;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -30,9 +31,14 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 				try {
 					IResource[] children = bmotionFolder.members();
 					for (IResource rs : children) {
-						if (rs.getFileExtension() != null
-								&& rs.getFileExtension().equals("html")) {
-							res.add(new BMotionStudioRodinFile(rs));
+						if (rs instanceof IContainer) {
+							IContainer subFolder = (IContainer) rs;
+							for (IResource rs2 : subFolder.members()) {
+								if (rs2.getFileExtension() != null
+										&& rs2.getName().equals("index.html")) {
+									res.add(new BMotionStudioRodinFile(rs));
+								}
+							}
 						}
 					}
 				} catch (CoreException e) {

@@ -1,5 +1,7 @@
 package de.prob2.ui.eclipse.views;
 
+import org.eclipse.ui.IMemento;
+
 import de.prob2.ui.eclipse.BrowserView;
 
 public class FormulaVizView extends BrowserView {
@@ -8,4 +10,8 @@ public class FormulaVizView extends BrowserView {
 		super("sessions/FormulaView");
 	}
 
+	@Override
+	public void saveState(final IMemento memento) {
+		// We don't want to persist these views, so do nothing.
+	}
 }

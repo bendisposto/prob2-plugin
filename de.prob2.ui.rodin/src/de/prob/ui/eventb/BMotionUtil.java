@@ -1,5 +1,6 @@
 package de.prob.ui.eventb;
 
+import java.io.File;
 import java.util.UUID;
 
 import org.eclipse.core.resources.IResource;
@@ -14,10 +15,10 @@ import org.eclipse.ui.PlatformUI;
 import de.prob2.ui.eclipse.handlers.IFileView;
 import de.prob2.ui.eclipse.views.BMSView;
 
-public class BMotionUtil {	
-	
+public class BMotionUtil {
+
 	public static void openBMotionView(ISelection selection) {
-		
+
 		// Get the Selection
 		if (selection instanceof IStructuredSelection) {
 
@@ -42,7 +43,8 @@ public class BMotionUtil {
 								IWorkbenchPage.VIEW_VISIBLE);
 						if (view instanceof IFileView) {
 							IFileView v = (IFileView) view;
-							v.setFileName(res.getFullPath().toOSString());
+							v.setFileName(res.getFullPath().toOSString()
+									+ File.separator + "index.html");
 						}
 
 					} catch (PartInitException e) {
@@ -54,7 +56,7 @@ public class BMotionUtil {
 			}
 
 		}
-		
+
 	}
 
 }

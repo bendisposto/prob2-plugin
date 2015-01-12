@@ -61,7 +61,7 @@
          <class
                class="de.prob2.ui.eclipse.handlers.OpenViewHandler">
          </class>
-     <enabledWhen>
+         <enabledWhen>
             <with
                   variable="de.prob.ui.model_loaded">
                <equals
@@ -152,14 +152,6 @@
             name="BUnit Tests">
       </view>
       <view
-            category="de.prob2"
-            class="de.prob2.ui.eclipse.views.LogView"
-            icon="icons/sample.gif"
-            id="de.prob2.ui.eclipse.log"
-            name="Log View"
-            restorable="true">
-      </view>
-      <view
             allowMultiple="true"
             category="de.prob2"
             class="de.prob2.ui.eclipse.views.GroovyConsoleView"
@@ -194,7 +186,7 @@
             icon="icons/bms.png"
             id="de.prob2.ui.views.bms"
             name="BMotion Studio"
-            restorable="true">
+            restorable="false">
       </view>
       <view
             category="de.prob2"
