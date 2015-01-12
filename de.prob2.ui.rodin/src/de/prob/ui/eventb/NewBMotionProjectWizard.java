@@ -129,7 +129,7 @@ public class NewBMotionProjectWizard extends Wizard implements INewWizard {
 							getInputStream("script.groovy"));
 					createFile(visFolder, "style.css",
 							getInputStream("style.css"));
-				} catch (IOException | CoreException e1) {
+				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 
