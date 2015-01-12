@@ -36,8 +36,7 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 							for (IResource rs2 : subFolder.members()) {
 								if (rs2.getFileExtension() != null
 										&& rs2.getName().equals("index.html")) {
-									res.add(new BMotionStudioRodinFile(rs2, rs
-											.getName()));
+									res.add(new BMotionStudioRodinFile(rs));
 								}
 							}
 						}

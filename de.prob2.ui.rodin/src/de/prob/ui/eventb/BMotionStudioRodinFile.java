@@ -10,11 +10,8 @@ public class BMotionStudioRodinFile {
 
 	private IResource resource;
 	
-	private String name;
-	
-	public BMotionStudioRodinFile(IResource resource, String name) {
+	public BMotionStudioRodinFile(IResource resource) {
 		this.resource = resource;
-		this.name = name;
 	}
 
 	public IResource getResource() {
@@ -23,14 +20,6 @@ public class BMotionStudioRodinFile {
 
 	public void setResource(IResource resource) {
 		this.resource = resource;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 }
