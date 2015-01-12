@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,7 +19,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -28,7 +26,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-import org.osgi.framework.Bundle;
 import org.rodinp.core.RodinCore;
 
 public class NewBMotionProjectWizard extends Wizard implements INewWizard {
@@ -123,12 +120,14 @@ public class NewBMotionProjectWizard extends Wizard implements INewWizard {
 				try {
 					createFile(visFolder, "index.html",
 							createHTMLContent(fMachineName));
-					createFile(visFolder, "script.js",
-							getInputStream("script.js"));
-					createFile(visFolder, "script.groovy",
-							getInputStream("script.groovy"));
+					createFile(visFolder, "script.js", createJsContent());
+					createFile(
+							visFolder,
+							"script.groovy",
+							new ByteArrayInputStream("// Put your code here"
+									.getBytes()));
 					createFile(visFolder, "style.css",
-							getInputStream("style.css"));
+							new ByteArrayInputStream("".getBytes()));
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -139,6 +138,12 @@ public class NewBMotionProjectWizard extends Wizard implements INewWizard {
 
 		monitor.worked(1);
 
+	}
+
+	private ByteArrayInputStream createJsContent() {
+		String content = "require(['prob'], function (prob) {\n"
+				+ "// Put your code here\n" + "});";
+		return new ByteArrayInputStream(content.getBytes());
 	}
 
 	private ByteArrayInputStream createHTMLContent(String machineName) {
@@ -164,11 +169,12 @@ public class NewBMotionProjectWizard extends Wizard implements INewWizard {
 
 	}
 
-	private InputStream getInputStream(String name) throws IOException {
-		Bundle bundle = Platform.getBundle("de.prob2.ui.rodin");
-		URL fileURL = bundle.getEntry("resources/" + name);
-		return fileURL.openConnection().getInputStream();
-	}
+	/*
+	 * private InputStream getInputStream(String name) throws IOException {
+	 * Bundle bundle = Platform.getBundle("de.prob2.ui.rodin"); URL fileURL =
+	 * bundle.getEntry("resources/" + name); return
+	 * fileURL.openConnection().getInputStream(); }
+	 */
 
 	private IFile createFile(IFolder folder, String name,
 			InputStream inputStream) throws CoreException, IOException {
