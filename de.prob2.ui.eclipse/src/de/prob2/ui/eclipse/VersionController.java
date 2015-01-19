@@ -18,7 +18,7 @@ public class VersionController {
 
 		if (version == null
 				|| !version.revision
-						.equals("50c91ce90de1d72fed61ac916548e2a4fc28b992")) {
+				.equals("8f57eef961abc788f0f674c057e0ad6c9ae258cb")) {
 			Display display = Display.getDefault();
 			Shell shell = display.getActiveShell();
 			String dialogMessage = "You either have no ProB binaries installed in your home directory, or your binaries are incompatible."
@@ -30,7 +30,7 @@ public class VersionController {
 					MessageDialog.WARNING, new String[] { "Ok", "Cancel" }, 0);
 			int result = popup.open();
 			if (result == 0) {
-				api.upgrade("advance-2015-Jan");
+				api.upgrade("milestone-23");
 			}
 		}
 	}
