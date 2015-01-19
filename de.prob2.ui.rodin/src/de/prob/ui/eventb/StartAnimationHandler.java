@@ -62,11 +62,12 @@ public class StartAnimationHandler extends AbstractHandler {
 		Trace h = new Trace(s);
 		AnimationSelector selector = injector
 				.getInstance(AnimationSelector.class);
+		selector.clearUnprotected();
 		selector.addNewAnimation(h);
 
 		System.gc();
 
-	final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
+		final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
 		IPerspectiveDescriptor activePerspective = workbenchWindow
 				.getActivePage().getPerspective();
