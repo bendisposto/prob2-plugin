@@ -45,9 +45,25 @@
       </with>
             </visibleWhen>
          </command>
+         <command
+               commandId="de.prob2.ui.export"
+               icon="icons/prob.png"
+               label="Export for ProB Classic..."
+               style="push">
+            <visibleWhen>
+               <with
+                     variable="selection">
+                  <iterate
+                        operator="or">
+                     <instanceof
+                           value="org.eventb.core.IEventBRoot">
+                     </instanceof>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
          <separator
-               name="de.prob.ui.separator1"
-               visible="true">
+               name="de.prob2.ui.rodin.separator2">
          </separator>
       </menuContribution>
          
@@ -137,6 +153,42 @@
             </with>
          </enabledWhen>
       </handler>
+ <handler
+       commandId="de.prob2.ui.export">
+    <class
+          class="de.prob.ui.eventb.ExportClassicHandler">
+    </class>
+    <enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     operator="or">
+                  <or>
+                     <instanceof
+                           value="org.eventb.core.IEventBRoot">
+                     </instanceof>
+                     <and>
+                        <instanceof
+                              value="org.eclipse.core.resources.IResource">
+                        </instanceof>
+                        <or>
+                           <test
+                                 forcePluginActivation="true"
+                                 property="org.eclipse.core.resources.extension"
+                                 value="bum">
+                           </test>
+                           <test
+                                 forcePluginActivation="true"
+                                 property="org.eclipse.core.resources.extension"
+                                 value="buc">
+                           </test>
+                        </or>
+                     </and>
+                  </or>
+               </iterate>
+            </with>
+         </enabledWhen>
+ </handler>
 
      </extension>
      <extension
@@ -149,6 +201,10 @@
             defaultHandler="de.prob.ui.eventb.StartVisualizationHandler"
             id="de.prob.ui.rodin.startVisualization"
             name="Start Visualization">
+      </command>
+      <command
+            id="de.prob2.ui.export"
+            name="Export for Classic ProB">
       </command>      
      </extension>
    <extension
