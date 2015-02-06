@@ -34,12 +34,25 @@
               allPopups="false"
               locationURI="menu:groovy">
            <command
-                 commandId="de.prob2.ui.eclipse.openView"
+                 commandId="de.prob2.ui.eclipse.openConsole"
                  label="Open new Groovy console"
                  style="push">
               <parameter
                     name="de.prob2.ui.eclipse.views.id"
                     value="de.prob2.ui.eclipse.groovyconsole">
+              </parameter>
+           </command>
+        </menuContribution>
+        <menuContribution
+              allPopups="false"
+              locationURI="menu:bconsole">
+           <command
+                 commandId="de.prob2.ui.eclipse.openConsole"
+                 label="Open B Console"
+                 style="push">
+              <parameter
+                    name="de.prob2.ui.eclipse.views.id"
+                    value="de.prob2.ui.eclipse.bconsole">
               </parameter>
            </command>
         </menuContribution>
@@ -76,6 +89,24 @@
                class="de.prob2.ui.eclipse.handlers.OpenBugReportPerspectiveHandler">
          </class>
       </handler>
+      <handler
+            commandId="de.prob2.ui.eclipse.openView">
+         <class
+               class="de.prob2.ui.eclipse.handlers.OpenViewHandler">
+         </class>
+         <enabledWhen>
+            <with
+                  variable="de.prob.ui.model_loaded">
+               <equals
+                     value="enabled">
+               </equals>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="de.prob2.ui.eclipse.handlers.OpenConsoleHandler"
+            commandId="de.prob2.ui.eclipse.openConsole">
+      </handler>
    </extension>
 
 
@@ -98,6 +129,20 @@
       <command
             id="de.prob2.ui.eclipse.openBugReport"
             name="Open Bugreport Perspective">
+      </command>
+      <command
+            id="de.prob2.ui.eclipse.openConsole"
+            name="Open Console">
+         <commandParameter
+               id="de.prob2.ui.eclipse.views.id"
+               name="View Id"
+               optional="false">
+         </commandParameter>
+         <commandParameter
+               id="de.prob2.ui.eclipse.file"
+               name="fileselector"
+               optional="true">
+         </commandParameter>
       </command>
    </extension>
   <extension
@@ -194,6 +239,15 @@
             icon="icons/sample.gif"
             id="de.prob2.ui.eclipse.bugreport"
             name="Submit Bugreport">
+      </view>
+      <view
+            allowMultiple="true"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.BConsole"
+            icon="icons/sample.gif"
+            id="de.prob2.ui.eclipse.bconsole"
+            name="B Console"
+            restorable="true">
       </view>
 
  <!--

@@ -12,10 +12,13 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
-public class OpenViewHandler extends AbstractHandler implements IHandler {
+import de.prob2.ui.eclipse.VersionController;
+
+public class OpenConsoleHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
+		VersionController.ensureInstalled();
 
 		String id = event.getParameter("de.prob2.ui.eclipse.views.id");
 		String selected = "";

@@ -88,6 +88,13 @@
                </separator>
             </menu>
             <menu
+            	  id="bconsole"
+                  label="B Console">
+               <separator
+                     name="bconsole">
+               </separator>
+            </menu>
+            <menu
                   id="contact"
                   label="Contact"
                   mnemonic="C">
@@ -104,7 +111,8 @@
                <separator
                      name="debug">
                </separator>
-            </menu> </menu>
+            </menu>
+             </menu>
       </menuContribution>
       <menuContribution
             locationURI="toolbar:org.eclipse.ui.main.toolbar">
