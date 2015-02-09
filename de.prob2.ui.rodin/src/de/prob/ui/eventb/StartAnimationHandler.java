@@ -55,7 +55,7 @@ public class StartAnimationHandler extends AbstractHandler {
 				.getInstance(EventBFactory.class);
 
 		EventBModel model = instance.load(fileName,
-				new HashMap<String, String>(), Api.getDEFAULT());
+				new HashMap<String, String>(), Api.getEVENTB());
 
 		StateSpace s = model.getStateSpace();
 
