@@ -16,15 +16,12 @@ public class VersionController {
 		Api api = Main.getInjector().getInstance(Api.class);
 		CliVersionNumber version = api.getVersion();
 
-		if (version == null
-				|| !version.revision
-						.equals("92c044e3dfcc8d07a758b342a3c63d2374706158")) {
+		if (version == null) {
 			Display display = Display.getDefault();
 			Shell shell = display.getActiveShell();
-			String dialogMessage = "You either have no ProB binaries installed in your home directory, or your binaries are incompatible."
+			String dialogMessage = "You have no ProB binaries installed in your home directory."
 					+ " Press \"Ok\" to download a compatible version.\n"
-					+ "Make sure that you have a working internet connection.\n"
-					+ "If you press \"Cancel\" we do not guarantee that ProB will work.";
+					+ "Make sure that you have a working internet connection.\n";
 			MessageDialog popup = new MessageDialog(shell,
 					"Download ProB Binaries", null, dialogMessage,
 					MessageDialog.WARNING, new String[] { "Ok", "Cancel" }, 0);
@@ -33,6 +30,37 @@ public class VersionController {
 				api.upgrade("milestone-23");
 			}
 		}
+		// else if (!version.revision
+		// .equals("92c044e3dfcc8d07a758b342a3c63d2374706158")) {
+		// Display display = Display.getDefault();
+		// Shell shell = display.getActiveShell();
+		// String dialogMessage =
+		// "The ProB binary in your home directory may not be compatible with this version of the ProB 2.0 Plug-in."
+		// + " Press \"Ok\" to download a compatible version.\n"
+		// + "Make sure that you have a working internet connection.\n"
+		// +
+		// "If you press \"Cancel\" we cannot guarantee that the plug-in will work correctly.";
+		// MessageDialog popup = new MessageDialog(shell,
+		// "Download ProB Binaries", null, dialogMessage,
+		// MessageDialog.WARNING, new String[] { "Ok", "Cancel" }, 0);
+		// int result = popup.open();
+		// if (result == 0) {
+		// try {
+		// api.upgrade("milestone-23");
+		// } catch (Exception e) {
+		// if (e instanceof FileNotFoundException) {
+		// MessageDialog popup2 = new MessageDialog(
+		// shell,
+		// "Download ProB Binaries",
+		// null,
+		// "The download failed because your ProB binary is in use."
+		// + " We will try to load your machine with your current binary.",
+		// MessageDialog.ERROR, new String[] { "Ok" }, 0);
+		// popup2.open();
+		// }
+		// }
+		// }
+		// }
 	}
 
 	public static synchronized void ensureInstalled() {
