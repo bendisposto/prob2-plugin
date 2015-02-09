@@ -18,7 +18,7 @@ public class VersionController {
 
 		if (version == null
 				|| !version.revision
-				.equals("f6e9fe067f19c4ea2863802f2c79b887a3c1cf5b")) {
+						.equals("92c044e3dfcc8d07a758b342a3c63d2374706158")) {
 			Display display = Display.getDefault();
 			Shell shell = display.getActiveShell();
 			String dialogMessage = "You either have no ProB binaries installed in your home directory, or your binaries are incompatible."
