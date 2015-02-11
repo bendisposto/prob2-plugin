@@ -1,6 +1,6 @@
 package de.prob.ui.eventb;
 
-import java.util.HashMap;
+import java.io.IOException;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -21,12 +21,14 @@ import org.rodinp.core.RodinCore;
 import com.google.inject.Injector;
 
 import de.prob.Main;
+import de.prob.exception.ProBError;
 import de.prob.model.eventb.EventBModel;
-import de.prob.scripting.Api;
 import de.prob.scripting.EventBFactory;
+import de.prob.scripting.ModelTranslationError;
 import de.prob.statespace.AnimationSelector;
 import de.prob.statespace.StateSpace;
 import de.prob.statespace.Trace;
+import de.prob2.ui.eclipse.ErrorHandler;
 import de.prob2.ui.eclipse.VersionController;
 
 public class StartAnimationHandler extends AbstractHandler {
@@ -54,36 +56,50 @@ public class StartAnimationHandler extends AbstractHandler {
 		final EventBFactory instance = injector
 				.getInstance(EventBFactory.class);
 
-		EventBModel model = instance.load(fileName,
-				new HashMap<String, String>(), Api.getEVENTB());
+		EventBModel model;
+		try {
+			model = instance.load(fileName);
+			StateSpace s = model.getStateSpace();
 
-		StateSpace s = model.getStateSpace();
+			Trace h = new Trace(s);
+			AnimationSelector selector = injector
+					.getInstance(AnimationSelector.class);
+			selector.clearUnprotected();
+			selector.addNewAnimation(h);
 
-		Trace h = new Trace(s);
-		AnimationSelector selector = injector
-				.getInstance(AnimationSelector.class);
-		selector.clearUnprotected();
-		selector.addNewAnimation(h);
+			System.gc();
 
-		System.gc();
+			final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow();
+			IPerspectiveDescriptor activePerspective = workbenchWindow
+					.getActivePage().getPerspective();
 
-		final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow();
-		IPerspectiveDescriptor activePerspective = workbenchWindow
-				.getActivePage().getPerspective();
+			Display.getCurrent().asyncExec(new Runnable() {
+				@Override
+				public void run() {
+					// switch perspective
+					try {
+						workbenchWindow.getWorkbench().showPerspective(
+								"de.prob2.perspective", workbenchWindow);
+					} catch (WorkbenchException e) {
 
-		Display.getCurrent().asyncExec(new Runnable() {
-			@Override
-			public void run() {
-				// switch perspective
-				try {
-					workbenchWindow.getWorkbench().showPerspective(
-							"de.prob2.perspective", workbenchWindow);
-				} catch (WorkbenchException e) {
-
+					}
 				}
-			}
-		});
+			});
+		} catch (IOException e1) {
+			ErrorHandler
+			.errorMessage("Loading of the model failed."
+							+ " Please check to make sure that the Rodin static checker has "
+					+ "produced a valid static checked file (.bcc or .bcm)."
+					+ " If not, try cleaning the project.");
+		} catch (ModelTranslationError e1) {
+			ErrorHandler
+			.errorMessage("Was not able to translate the model because of the following error: "
+					+ e1.getMessage());
+		} catch (ProBError e) {
+			ErrorHandler.errorMessage("ProB was not able to load the model.\n"
+					+ "This is because: " + e.getMessage());
+		}
 
 		return null;
 	}
