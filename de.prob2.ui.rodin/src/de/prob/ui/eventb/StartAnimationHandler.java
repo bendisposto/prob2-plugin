@@ -9,7 +9,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.WorkbenchException;
@@ -61,18 +60,16 @@ public class StartAnimationHandler extends AbstractHandler {
 			model = instance.load(fileName);
 			StateSpace s = model.getStateSpace();
 
-			Trace h = new Trace(s);
+			Trace t = new Trace(s);
 			AnimationSelector selector = injector
 					.getInstance(AnimationSelector.class);
 			selector.clearUnprotected();
-			selector.addNewAnimation(h);
+			selector.addNewAnimation(t, false);
 
 			System.gc();
 
 			final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow();
-			IPerspectiveDescriptor activePerspective = workbenchWindow
-					.getActivePage().getPerspective();
 
 			Display.getCurrent().asyncExec(new Runnable() {
 				@Override
