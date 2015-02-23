@@ -21,19 +21,27 @@ public class BUnitFileDialogHandler extends AbstractHandler {
 		DirectoryDialog fileDialog = new DirectoryDialog(shell);
 		// Set the text
 		fileDialog
-		.setText("Select directory where your test file is contained");
+				.setText("Select directory where your test file is contained");
 		// Set filter on .txt files
 		// fileDialog.setFilterExtensions(new String[] { "*.groovy" });
 		// Put in a readable name for the filter
 		// fileDialog
 		// .setFilterNames(new String[] { "Groovy Test files (*.groovy)" });
 		// Open Dialog and save result of selection
-		String selected = fileDialog.open();
+		final String selected = fileDialog.open();
 		System.out.println(selected);
 
-		TestRunner tests = Main.getInjector().getInstance(TestRunner.class);
-		tests.runTests(selected);
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				TestRunner tests = Main.getInjector().getInstance(
+						TestRunner.class);
+				tests.runTests(selected);
+			}
+
+		}).run();
+
 		return null;
 	}
-
 }
