@@ -7,15 +7,15 @@
 	<classpathentry exported="true" kind="lib" path="lib/asm-analysis-3.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/asm-tree-3.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/asm-util-3.3.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/bmotion-0.1.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/bmotion-prob-0.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bmotion-0.1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bmotion-prob-0.1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/bparser-2.4.34.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/cglib-2.2.1-v20090111.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/cliparser-2.4.34.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-cli-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-lang-2.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/compiler-0.8.12.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/de.prob2.kernel-2.0.0-milestone-23-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/de.prob2.kernel-2.0.0-milestone-23.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/groovy-all-2.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/gson-1.7.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/guava-18.0.jar"/>

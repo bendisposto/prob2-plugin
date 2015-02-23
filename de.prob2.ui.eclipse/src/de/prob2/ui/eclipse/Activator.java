@@ -48,8 +48,9 @@ public class Activator extends AbstractUIPlugin {
 			@Override
 			public void run() {
 				IWorkspace workspace = ResourcesPlugin.getWorkspace();
-				String[] bmsArgs = { "-workspace",
+				String[] bmsArgs = { "-local", "-workspace",
 						workspace.getRoot().getLocation().toOSString() };
+
 				bmotionServer = ProBServerFactory.getServer(bmsArgs);
 				bmotionServer.setResourceResolver(new ResourceResolver() {
 					@Override
@@ -110,7 +111,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/**
 	 * Returns the shared instance
-	 *
+	 * 
 	 * @return the shared instance
 	 */
 	public static Activator getDefault() {
