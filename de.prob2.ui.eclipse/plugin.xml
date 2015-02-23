@@ -65,6 +65,16 @@
                  style="push">
            </command>
         </menuContribution>
+        <menuContribution
+              allPopups="false"
+              locationURI="toolbar:de.prob2.ui.eclipse.BUnitView">
+           <command
+                 commandId="de.prob2.bunit.filedialog"
+                 icon="icons/add_att.gif"
+                 label="Open BUnit Test File"
+                 style="push">
+           </command>
+        </menuContribution>
    </extension>
 
 <extension
@@ -92,6 +102,10 @@
       <handler
             class="de.prob2.ui.eclipse.handlers.OpenConsoleHandler"
             commandId="de.prob2.ui.eclipse.openConsole">
+      </handler>
+      <handler
+            class="de.prob2.ui.eclipse.handlers.BUnitFileDialogHandler"
+            commandId="de.prob2.bunit.filedialog">
       </handler>
    </extension>
 
@@ -129,6 +143,10 @@
                name="fileselector"
                optional="true">
          </commandParameter>
+      </command>
+      <command
+            id="de.prob2.bunit.filedialog"
+            name="Find File and Start BUnit test">
       </command>
    </extension>
   <extension
