@@ -19,7 +19,6 @@ Bundle-ClassPath: .,
  lib/commons-cli-1.2.jar,
  lib/commons-lang-2.6.jar,
  lib/compiler-0.8.12.jar,
- lib/de.prob2.kernel-2.0.0-milestone-23.jar,
  lib/groovy-all-2.3.0.jar,
  lib/gson-1.7.1.jar,
  lib/guava-18.0.jar,
@@ -68,7 +67,8 @@ Bundle-ClassPath: .,
  lib/theorymapping-2.4.34.jar,
  lib/tla2bAST-1.0.5-SNAPSHOT.jar,
  lib/tlatools-1.0.0-SNAPSHOT.jar,
- lib/unicode-2.4.34.jar
+ lib/unicode-2.4.34.jar,
+ lib/de.prob2.kernel-2.0.0-milestone-24-SNAPSHOT.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: ch.qos.logback.classic,
  ch.qos.logback.classic.boolex,

@@ -21,7 +21,7 @@ configurations.all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.0' // Apache Licence 2.0
-    runtime group: "de.prob2", name: "de.prob2.kernel", version: "2.0.0-milestone-23" , changing: false
+    runtime group: "de.prob2", name: "de.prob2.kernel", version: "2.0.0-milestone-24-SNAPSHOT" , changing: false
 	runtime group: "de.bmotion", name: "bmotion-prob", version: "0.1.2" , changing: false
 	}
 
