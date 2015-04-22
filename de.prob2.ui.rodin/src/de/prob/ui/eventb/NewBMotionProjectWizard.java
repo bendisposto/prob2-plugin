@@ -118,14 +118,15 @@ public class NewBMotionProjectWizard extends Wizard implements INewWizard {
 					visFolder.create(IResource.NONE, true, null);
 
 				try {
-					createFile(visFolder, "index.html",
-							createHTMLContent(fMachineName));
+					createFile(visFolder, "index.html", createHTMLContent());
 					createFile(visFolder, "script.js", createJsContent());
-					createFile(
-							visFolder,
-							"script.groovy",
-							new ByteArrayInputStream("// Put your code here"
-									.getBytes()));
+					createFile(visFolder, "bmotion.json",
+							createConfigurationContent(fMachineName));
+					// createFile(
+					// visFolder,
+					// "script.groovy",
+					// new ByteArrayInputStream("// Put your code here"
+					// .getBytes()));
 					createFile(visFolder, "style.css",
 							new ByteArrayInputStream("".getBytes()));
 				} catch (IOException e1) {
@@ -141,32 +142,27 @@ public class NewBMotionProjectWizard extends Wizard implements INewWizard {
 	}
 
 	private ByteArrayInputStream createJsContent() {
-		String content = "require(['prob'], function (prob) {\n"
+		String content = "requirejs(['bmotion'], function () {\n"
 				+ "// Put your code here\n" + "});";
 		return new ByteArrayInputStream(content.getBytes());
 	}
 
-	private ByteArrayInputStream createHTMLContent(String machineName) {
+	private ByteArrayInputStream createConfigurationContent(String machineName) {
+		String content = "{" + "'name': 'lift',\n"
+				+ "'template': 'index.html',\n" + "'model': '../" + machineName
+				+ "',\n" + "'tool': 'BAnimation',\n" + "}";
+		return new ByteArrayInputStream(content.getBytes());
+	}
 
-		String content = "<html bms-app>\n"
+	private ByteArrayInputStream createHTMLContent() {
+		String content = "<html data-bms-visualisation>\n"
 				+ "  <head>\n"
 				+ "      <title>BMotion Studio for ProB</title>\n"
-				+ "      <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>\n"
-				+ "      <meta name='bms.tool' content='BAnimation' />\n"
-				+ "      <meta name='bms.script' content='script.groovy' />\n"
-				+ "      <meta name='bms.model' content='../../"
-				+ machineName
-				+ "' />\n"
 				+ "      <link rel='stylesheet' type='text/css' href='style.css'>\n"
-				+ "      <script src='/bms/libs/requirejs/require.js'></script>\n"
-				+ "      <script>\n"
-				+ "        require(['/bms/libs/prob/config.js'], function () {\n"
-				+ "            require(['script']);\n" + "        });\n"
-				+ "      </script>\n" + "  </head>\n" + "  <body>\n"
+				+ "  </head>\n" + "  <body>\n"
+				+ "   <script data-main='script' src='require.js'></script>\n"
 				+ "  </body>\n" + "</html>\n";
-
 		return new ByteArrayInputStream(content.getBytes());
-
 	}
 
 	/*

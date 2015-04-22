@@ -254,7 +254,7 @@
          </includes>
       </viewerContentBinding>
    </extension>
-   <extension
+   <!--extension
          point="org.eclipse.ui.newWizards">
       <category
             id="de.prob2.ui.rodin.bmsWizard"
@@ -268,7 +268,7 @@
             name="BMotion Studio Visualization"
             project="false">
       </wizard>
-   </extension>
+   </extension-->
    
    
    

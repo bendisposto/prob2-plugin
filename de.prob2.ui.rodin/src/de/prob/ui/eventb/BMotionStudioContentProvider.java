@@ -23,31 +23,50 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 
 		if (parentElement instanceof IProject) {
 
-			final IProject project = (IProject) parentElement;
-			IFolder bmotionFolder = project.getFolder("bmotion");
-			if (bmotionFolder.exists()) {
+			try {
+				final IContainer project = (IContainer) parentElement;
+				IResource[] children = project.members();
+				for (IResource rs : children) {
 
-				try {
-					IResource[] children = bmotionFolder.members();
-					for (IResource rs : children) {
-						if (rs instanceof IContainer) {
-							IContainer pfolder = (IContainer) rs;
+					if (rs instanceof IContainer) {
+						IContainer pfolder = (IContainer) rs;
+						if (pfolder.findMember("bmotion.json") != null) {
 							List<BMotionStudioRodinFile> files = new ArrayList<BMotionStudioRodinFile>();
-							for (IResource rs2 : pfolder.members()) {
-								files.add(new BMotionStudioRodinFile(rs2));
+							for (IResource fs : pfolder.members()) {
+								files.add(new BMotionStudioRodinFile(fs));
 							}
 							res.add(new BMotionStudioRodinProject(pfolder,
 									files));
 						}
 					}
-				} catch (CoreException e) {
-					e.printStackTrace();
-				}
 
+				}
+			} catch (CoreException e) {
+				e.printStackTrace();
 			}
 
 		} else if (parentElement instanceof BMotionStudioRodinProject) {
 			res.addAll(((BMotionStudioRodinProject) parentElement).getFiles());
+		} else if (parentElement instanceof BMotionStudioRodinFile) {
+
+			BMotionStudioRodinFile p = (BMotionStudioRodinFile) parentElement;
+
+			try {
+				IResource r = p.getResource();
+				if (r instanceof IFolder) {
+					if (r instanceof IContainer) {
+						IContainer pfolder = (IContainer) r;
+						for (IResource fs : pfolder.members()) {
+							p.getFiles().add(new BMotionStudioRodinFile(fs));
+						}
+					}
+				}
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+
+			res.addAll(((BMotionStudioRodinFile) parentElement).getFiles());
+
 		}
 
 		return res.toArray(new Object[res.size()]);
@@ -60,7 +79,13 @@ public class BMotionStudioContentProvider implements ITreeContentProvider {
 	}
 
 	public boolean hasChildren(final Object element) {
-		return element instanceof BMotionStudioRodinProject;
+		if (element instanceof BMotionStudioRodinProject) {
+			return true;
+		} else if (element instanceof BMotionStudioRodinFile) {
+			BMotionStudioRodinFile rf = (BMotionStudioRodinFile) element;
+			return rf.getResource() instanceof IContainer;
+		}
+		return false;
 	}
 
 	public Object[] getElements(final Object inputElement) {

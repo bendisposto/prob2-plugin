@@ -27,7 +27,7 @@ public class BMotionUtil {
 			if (view instanceof IFileView) {
 				IFileView v = (IFileView) view;
 				v.setFileName(res.getFullPath().toOSString() + File.separator
-						+ "index.html");
+						+ "bmotion.json");
 			}
 		} catch (PartInitException e) {
 			e.printStackTrace();
