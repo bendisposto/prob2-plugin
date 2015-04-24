@@ -20,7 +20,7 @@ public class BMSView extends AbstractBrowserView implements IFileView {
 	@Override
 	public void setFileName(final String fn) {
 		if (fn != null) {
-			load("http://localhost:" + bmotionPort + "/bms" + fn);
+			load("http://localhost:" + bmotionPort + "/rodin/?template=" + fn);
 		}
 	}
 

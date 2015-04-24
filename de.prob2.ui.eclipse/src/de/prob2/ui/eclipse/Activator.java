@@ -9,9 +9,9 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import de.bms.BMotionServer;
+import de.bms.ResourceResolver;
 import de.bms.prob.ProBServerFactory;
-import de.bms.server.BMotionServer;
-import de.bms.server.ResourceResolver;
 import de.prob.Main;
 import de.prob.webconsole.WebConsole;
 
@@ -64,7 +64,7 @@ public class Activator extends AbstractUIPlugin {
 						return newUrl;
 					}
 				});
-				bmotionServer.start();
+				bmotionServer.startWithJetty();
 			}
 		}).start();
 
