@@ -12,9 +12,11 @@ public abstract class AbstractBrowserView extends ViewPart {
 	protected Composite canvas;
 	protected Browser browser;
 	protected String url;
+	protected boolean requiresProB;
 
 	public AbstractBrowserView(final String url) {
 		this.url = url;
+		requiresProB = false;
 		port = WebConsole.getPort();
 
 	}
@@ -31,6 +33,10 @@ public abstract class AbstractBrowserView extends ViewPart {
 	private void createSWTBrowser(final Composite parent) {
 		Browser b = new Browser(parent, SWT.NONE);
 		browser = b;
+
+		if (requiresProB) {
+			VersionController.ensureInstalled();
+		}
 
 		String u = getUrl();
 		if (u != null && !u.isEmpty()) {

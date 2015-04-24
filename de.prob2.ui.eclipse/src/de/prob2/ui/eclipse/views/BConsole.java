@@ -6,5 +6,6 @@ public class BConsole extends BrowserView {
 
 	public BConsole() {
 		super("sessions/BConsole");
+		requiresProB = true;
 	}
 }
