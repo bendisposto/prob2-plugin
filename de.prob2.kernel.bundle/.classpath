@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/answerparser-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/answerparser-2.4.37.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/antlr4-runtime-4.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/aopalliance-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/asm-3.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/asm-analysis-3.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/asm-tree-3.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/asm-util-3.3.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/bmotion-0.1.3-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/bmotion-prob-0.1.3-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/bparser-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bmotion-0.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bmotion-prob-0.2.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/bparser-2.4.37.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/cglib-2.2.1-v20090111.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/cliparser-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/cliparser-2.4.37.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/clj-ds-0.0.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-cli-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-lang-2.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/compiler-0.8.12.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/de.prob2.kernel-2.0.0-milestone-24-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/de.prob2.kernel-2.0.0-milestone-25.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/groovy-all-2.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/gson-1.7.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/guava-18.0.jar"/>
@@ -45,7 +45,7 @@
 	<classpathentry exported="true" kind="lib" path="lib/logback-classic-1.1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/logback-core-1.1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/ltl-dsl-1.0.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/ltlparser-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ltlparser-2.4.37.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/netty-buffer-4.0.25.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/netty-codec-4.0.25.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/netty-codec-http-4.0.25.Final.jar"/>
@@ -58,15 +58,16 @@
 	<classpathentry exported="true" kind="lib" path="lib/org.eventb.core.ast-3.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/parboiled-core-1.0.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/parboiled-java-1.0.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/parserbase-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/parserbase-2.4.37.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/pegdown-1.1.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/prologlib-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/prologlib-2.4.37.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.7.7.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/spock-core-0.7-groovy-2.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/theorymapping-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/theorymapping-2.4.37.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/tla2bAST-1.0.5-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/tlatools-1.0.0-SNAPSHOT.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/unicode-2.4.37-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/translator-2.4.37.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/unicode-2.4.37.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="output" path="bin"/>
