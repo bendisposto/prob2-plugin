@@ -5,7 +5,7 @@ branches:
   - develop
 jdk:
 - oraclejdk7
-after_success: cd de.prob2.updatesite/target && mv repository updatesite && find updatesite/ -type f -exec curl -u $FTP_USER:$FTP_PASS --ftp-create-dirs
+after_success: cd ../de.prob2.updatesite/target && mv repository updatesite && find updatesite/ -type f -exec curl -u $FTP_USER:$FTP_PASS --ftp-create-dirs
    -T {} ftp://cobra.cs.uni-duesseldorf.de/upload/{} \;
 env:
   global:
