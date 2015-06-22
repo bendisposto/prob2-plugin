@@ -13,7 +13,7 @@ Maven 3 is required to build the project:
 This will produce the update site for the plug-in in the folder `de.prob2.updatesite/target`
 
 ## Bugs 
-Because of a bug in Eclipse, ProB 2.0 crashes on some Linux systems after using it for about 3 minutes. We hope, that this issue will be fixed when Rodin switches to Eclipse 4.x (planned for Rodin 3.1).
+Because of a bug in Eclipse, Rodin with ProB 2.0 crashes on some Linux systems after using it for about 3 minutes. This issue is fixed in Rodin 3.1
 
 
 (c) 2014 Jens Bendisposto et.al. , all rights reserved
