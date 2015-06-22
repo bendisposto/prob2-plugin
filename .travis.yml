@@ -1,0 +1,7 @@
+language: java
+script: cd master && mvn clean verify
+branches:
+  only:
+  - develop
+jdk:
+- oraclejdk7
