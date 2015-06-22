@@ -1,5 +1,5 @@
 language: java
-script: cd master && mvn clean verify
+script: cd master && mvn clean verify 
 branches:
   only:
   - develop
