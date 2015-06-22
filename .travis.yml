@@ -1,7 +1,13 @@
 language: java
-script: cd master && mvn clean verify 
+script: cd master && mvn clean verify
 branches:
   only:
   - develop
 jdk:
 - oraclejdk7
++after_success: cd de.prob2.updatesite/target && mv repository updatesite && find updatesite/ -type f -exec curl -u $FTP_USER:$FTP_PASS --ftp-create-dirs
+   -T {} ftp://cobra.cs.uni-duesseldorf.de/upload/{} \;
+env:
+  global:
+  - secure: WsVVS0+HTJpkc5mMpOb6586v+ozGEfj6kCeDX3Rm/IqC/bESxrm/F3wZXLP26j7AIfdHtgwRScqWElzbySnkxmUunRG0gfan4BzZ2OTeu3Mnbr18HdCftoo2Ovo5W4Tajh+LwVp++j61KZ8TytFpw0dotj9EjgjBp769PKRiUuw=
+  - secure: DbKoJiiYvtxZ2qSmucU+lOF6bZEk4lzUnFd39IbOO7S6lNBezMLomg4lLnR06t//W+D4s7L9Fts2y+XvmD044+YusDFKFcBz6RjfY8/FVfF3vT7SQfEW2+7mrughP9ZUUMnv+KSClipSHgZhZ6DF/Tl7L0LHer1TMPSX986KVT0=
