@@ -3,3 +3,4 @@ de.prob2.kernel.bundle/lib
 **/bin
 **/.settings
 **/target
+.gradle
