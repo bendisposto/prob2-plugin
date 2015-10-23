@@ -5,9 +5,14 @@ branches:
   - develop
 jdk:
 - oraclejdk7
-after_success: cd ../de.prob2.updatesite/target && mv repository updatesite && find updatesite/ -type f -exec curl -u $FTP_USER:$FTP_PASS --ftp-create-dirs
-   -T {} ftp://cobra.cs.uni-duesseldorf.de/upload/{} \;
+before_install:
+- rvm install 2.0.0
+- gem install travis-custom-deploy
+after_success:
+- travis-custom-deploy sftp updatesite/
 env:
   global:
-  - secure: WsVVS0+HTJpkc5mMpOb6586v+ozGEfj6kCeDX3Rm/IqC/bESxrm/F3wZXLP26j7AIfdHtgwRScqWElzbySnkxmUunRG0gfan4BzZ2OTeu3Mnbr18HdCftoo2Ovo5W4Tajh+LwVp++j61KZ8TytFpw0dotj9EjgjBp769PKRiUuw=
-  - secure: DbKoJiiYvtxZ2qSmucU+lOF6bZEk4lzUnFd39IbOO7S6lNBezMLomg4lLnR06t//W+D4s7L9Fts2y+XvmD044+YusDFKFcBz6RjfY8/FVfF3vT7SQfEW2+7mrughP9ZUUMnv+KSClipSHgZhZ6DF/Tl7L0LHer1TMPSX986KVT0=
+  - secure: SGU9V3b72o1cf3F49E0xhe4YBjafh0GEZzp3vQKPRMsTObR28rRBx6dpA7PzdgUHyzhP4kyTq4OwJAaSjlBPQXX5MlYcXHcDMEnA4DLLT6VpEscv9K2KYu+2DLbhW0TyFx+7vxyBst3ZX2bfw7VTcoo2vgo5b7GNYpkIZQu6cxo=
+  - secure: DrQLIoZ82HLaR0TxaZn8Zan/D3nV8FApMkq6I36cmsOidvIIUxdBGRb9G5WcwZJqZ8CaceK04z0eHprlNCpGoKmBdn6pxgdj5lZPedULcbsSO8q2Hw/06VlXrEBlWKItrfqkN8T/W/Ul7LdUs+lzIniOl8zYmxIMiYP4RtDmXG0=
+  - secure: LDZketS8yG48LA7OKywTtllYFu5l+cYkjRMMoZ8lTVL4OXtHeZ8ntzrI3EG62PccoDI03W48w0LQJ6/bJyIk0JymPZpEKLmocXwpW7F+ac1FYPHLJ/uo0ZRN7hOSHsw9hyBg90pklz574k0PDdbI3rldVidd1TIuulvwvcY8HHw=
+  - secure: SsM0SVXeKwJR3prVrVUDBS7TzpTyc3RX8iCctULn020ihIeP+wzwAUYyMRrv004usgAQXFD7fWQVXcU+iUS8yEExLk34gDwywASPvz1sAHJZjYEt8YIJCVaFFCZzIF4sO9mYNU0P8Bb/GtWW3t3lD1REI04XBniSZ5DiETQUq1M=
