@@ -6,7 +6,6 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>../de.prob2.rodin3.target</module>
     <module>../de.prob2.kernel.bundle</module>
     <module>../de.prob2.ui.eclipse</module>
     <module>../de.prob2.ui.rodin</module>
@@ -25,55 +24,58 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
- <repositories>
-    <repository>
-      <id>cobra</id>
-      <url>http://cobra.cs.uni-duesseldorf.de/artifactory/repo/</url>
-    </repository>
-  </repositories>
+
+  <repositories>
+ <!-- configure p2 repository to resolve against -->
+ <repository>
+   <id>targetRepository0</id>
+   <layout>p2</layout>
+   <url>http://download.eclipse.org/releases/luna/</url>
+ </repository>
+
+ <repository>
+   <id>targetRepository1</id>
+   <layout>p2</layout>
+   <url>http://download.eclipse.org/tools/gef/updates/releases/</url>
+ </repository>
+
+       <repository>
+   <id>targetRepository2</id>
+   <layout>p2</layout>
+   <url>http://rodin-b-sharp.sourceforge.net/core-updates</url>
+ </repository>
+
+ <repository>
+   <id>targetRepository3</id>
+   <layout>p2</layout>
+   <url>http://rodin-b-sharp.sourceforge.net/updates</url>
+ </repository>
 
 
+ </repositories>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>target-platform-configuration</artifactId>
-        <version>0.21.0</version>
-        <configuration>
-          <target>
-            <artifact>
-              <groupId>de.prob2</groupId>
-              <artifactId>rodin3</artifactId>
-              <version>1.0.0-SNAPSHOT</version>
-            </artifact>
-          </target>
-          <environments>
-            <environment>
-              <os>win32</os>
-              <ws>win32</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86_64</arch>
-            </environment>
-            <environment>
-              <os>macosx</os>
-              <ws>cocoa</ws>
-              <arch>x86_64</arch>
-            </environment>
-          </environments>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>0.21.0</version>
-        <extensions>true</extensions>
-      </plugin>
-    </plugins>
-  </build>
+ <build>
+   <plugins>
+     <plugin>
+       <!-- enable tycho build extension -->
+       <groupId>org.eclipse.tycho</groupId>
+       <artifactId>tycho-maven-plugin</artifactId>
+       <version>0.21.0</version>
+       <extensions>true</extensions>
+     </plugin>
 
-</project> 
+     <plugin>
+       <groupId>org.eclipse.tycho</groupId>
+       <artifactId>target-platform-configuration</artifactId>
+       <version>0.21.0</version>
+       <configuration>
+         <dependency-resolution>
+           <optionalDependencies>ignore</optionalDependencies>
+         </dependency-resolution>
+       </configuration>
+     </plugin>
+
+   </plugins>
+ </build>
+
+</project>

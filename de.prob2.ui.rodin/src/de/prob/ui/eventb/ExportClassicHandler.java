@@ -24,6 +24,7 @@ import org.osgi.service.prefs.Preferences;
 import de.prob.Main;
 import de.prob.model.eventb.EventBModel;
 import de.prob.scripting.Api;
+import de.prob.statespace.StateSpace;
 
 public class ExportClassicHandler extends AbstractHandler implements IHandler {
 
@@ -101,8 +102,8 @@ public class ExportClassicHandler extends AbstractHandler implements IHandler {
 			Api api = Main.getInjector().getInstance(Api.class);
 
 			try {
-				EventBModel model = api.eventb_load(modelFile);
-				api.eventb_save(model, filename);
+				StateSpace s = api.eventb_load(modelFile);
+				api.eventb_save(s, filename);
 			} catch (Exception e) {
 				Display display = Display.getDefault();
 				Shell shell = display.getActiveShell();

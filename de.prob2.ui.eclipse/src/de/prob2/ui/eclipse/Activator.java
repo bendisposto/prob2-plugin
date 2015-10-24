@@ -12,7 +12,7 @@ import org.osgi.framework.BundleContext;
 import de.bms.BMotionServer;
 import de.bms.ResourceResolver;
 import de.bms.prob.ProBServerFactory;
-import de.prob.Main;
+import de.prob.servlet.Main;
 import de.prob.webconsole.WebConsole;
 
 /**

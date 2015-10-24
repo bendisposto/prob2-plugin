@@ -1,6 +1,7 @@
 package de.prob.ui.eventb;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -57,8 +58,10 @@ public class StartAnimationHandler extends AbstractHandler {
 
 		EventBModel model;
 		try {
-			model = instance.load(fileName);
-			StateSpace s = model.getStateSpace();
+
+			StateSpace s = instance.loadModelFromEventBFile(fileName,
+					new HashMap<String, String>());
+			model = (EventBModel) s.getModel();
 
 			Trace t = new Trace(s);
 			AnimationSelector selector = injector
@@ -85,14 +88,10 @@ public class StartAnimationHandler extends AbstractHandler {
 			});
 		} catch (IOException e1) {
 			ErrorHandler
-			.errorMessage("Loading of the model failed."
+					.errorMessage("Loading of the model failed."
 							+ " Please check to make sure that the Rodin static checker has "
-					+ "produced a valid static checked file (.bcc or .bcm)."
-					+ " If not, try cleaning the project.");
-		} catch (ModelTranslationError e1) {
-			ErrorHandler
-			.errorMessage("Was not able to translate the model because of the following error: "
-					+ e1.getMessage());
+							+ "produced a valid static checked file (.bcc or .bcm)."
+							+ " If not, try cleaning the project.");
 		} catch (ProBError e) {
 			ErrorHandler.errorMessage("ProB was not able to load the model.\n"
 					+ "This is because: " + e.getMessage());
