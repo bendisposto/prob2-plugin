@@ -9,7 +9,7 @@ before_install:
 - rvm install 2.0.0
 - gem install travis-custom-deploy
 after_success:
-- travis-custom-deploy sftp updatesite/
+- travis-custom-deploy sftp de.prob2.updatesite/target/repository/
 env:
   global:
   - secure: SGU9V3b72o1cf3F49E0xhe4YBjafh0GEZzp3vQKPRMsTObR28rRBx6dpA7PzdgUHyzhP4kyTq4OwJAaSjlBPQXX5MlYcXHcDMEnA4DLLT6VpEscv9K2KYu+2DLbhW0TyFx+7vxyBst3ZX2bfw7VTcoo2vgo5b7GNYpkIZQu6cxo=
