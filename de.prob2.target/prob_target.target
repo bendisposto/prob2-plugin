@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="prob_target" sequenceNumber="42">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.gef.sdk.feature.group" version="3.9.101.201408150207"/>
+<repository location="http://download.eclipse.org/releases/luna"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eventb.theory.feature.feature.group" version="3.0.0"/>
+<repository location="http://rodin-b-sharp.sourceforge.net/updates/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.rodinp.platform.product" version="3.2.0.201506220911-ecacdcb"/>
+<repository location="http://rodin-b-sharp.sourceforge.net/core-updates/"/>
+</location>
+</locations>
+</target>
