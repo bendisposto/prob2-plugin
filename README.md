@@ -4,7 +4,7 @@
 This project was extracted from the https://github.com/bendisposto/prob2 repository. It contains the generic Eclipse and the Rodin Integration plug-ins, i.e., the mapping of Eclipse views to ProB 2.0 components are defined here. The content of the views is defined in https://github.com/bendisposto/prob2.
 
 ## Installation
-The most recent build can be installed using this update site: http://nightly.cobra.cs.uni-duesseldorf.de/prob2/updates/nightly/
+The most recent build can be installed using this update site: http://www3.hhu.de/stups/rodin/prob2/nightly/
 
 Released versions can be found here: http://nightly.cobra.cs.uni-duesseldorf.de/prob2/updates/releases/
 
