@@ -1,7 +1,6 @@
 package de.prob.ui.eventb;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -20,11 +19,12 @@ import org.rodinp.core.RodinCore;
 
 import com.google.inject.Injector;
 
-import de.prob.Main;
 import de.prob.exception.ProBError;
 import de.prob.model.eventb.EventBModel;
 import de.prob.scripting.EventBFactory;
+import de.prob.scripting.ExtractedModel;
 import de.prob.scripting.ModelTranslationError;
+import de.prob.servlet.Main;
 import de.prob.statespace.AnimationSelector;
 import de.prob.statespace.StateSpace;
 import de.prob.statespace.Trace;
@@ -56,12 +56,9 @@ public class StartAnimationHandler extends AbstractHandler {
 		final EventBFactory instance = injector
 				.getInstance(EventBFactory.class);
 
-		EventBModel model;
 		try {
-
-			StateSpace s = instance.loadModelFromEventBFile(fileName,
-					new HashMap<String, String>());
-			model = (EventBModel) s.getModel();
+			ExtractedModel<EventBModel> em = instance.extract(fileName);
+			StateSpace s = em.load();
 
 			Trace t = new Trace(s);
 			AnimationSelector selector = injector
@@ -95,6 +92,9 @@ public class StartAnimationHandler extends AbstractHandler {
 		} catch (ProBError e) {
 			ErrorHandler.errorMessage("ProB was not able to load the model.\n"
 					+ "This is because: " + e.getMessage());
+		} catch (ModelTranslationError e) {
+			ErrorHandler.errorMessage("Translating the model into a format that ProB understands"
+		            + " was not successful. This is because: " + e.getMessage());
 		}
 
 		return null;

@@ -6,9 +6,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-import de.prob.Main;
 import de.prob.cli.CliVersionNumber;
 import de.prob.scripting.Api;
+import de.prob.servlet.Main;
 
 public class VersionController {
 
@@ -16,49 +16,49 @@ public class VersionController {
 
 	private void check() {
 		if (!"false".equals(System.getProperty("checkVersion"))) {
-			Api api = Main.getInjector().getInstance(Api.class);
-			CliVersionNumber version = api.getVersion();
+			final Api api = Main.getInjector().getInstance(Api.class);
+			final CliVersionNumber version = api.getVersion();
 
 			if (version == null) {
-				Display display = Display.getDefault();
-				Shell shell = display.getActiveShell();
-				String dialogMessage = "You have no ProB binaries installed in your home directory."
+				final Display display = Display.getDefault();
+				final Shell shell = display.getActiveShell();
+				final String dialogMessage = "You have no ProB binaries installed in your home directory."
 						+ " Press \"Ok\" to download a compatible version.\n"
 						+ "Make sure that you have a working internet connection.\n";
-				MessageDialog popup = new MessageDialog(shell,
+				final MessageDialog popup = new MessageDialog(shell,
 						"Download ProB Binaries", null, dialogMessage,
 						MessageDialog.WARNING, new String[] { "Ok", "Cancel" },
 						0);
-				int result = popup.open();
+				final int result = popup.open();
 				if (result == 0) {
 					api.upgrade("milestone-25");
 				}
 			} else if (!version.revision
 					.equals("28f6135804e7218347092f146d37cdd492e95eca")) {
-				Display display = Display.getDefault();
-				Shell shell = display.getActiveShell();
-				String dialogMessage = "The ProB binary in your home directory may not be compatible with this version of the ProB 2.0 Plug-in."
+				final Display display = Display.getDefault();
+				final Shell shell = display.getActiveShell();
+				final String dialogMessage = "The ProB binary in your home directory may not be compatible with this version of the ProB 2.0 Plug-in."
 						+ " Press \"Ok\" to download a compatible version.\n"
 						+ "Make sure that you have a working internet connection.\n"
 						+ "If you press \"Cancel\" we cannot guarantee that the plug-in will work correctly.";
-				MessageDialog popup = new MessageDialog(shell,
+				final MessageDialog popup = new MessageDialog(shell,
 						"Download ProB Binaries", null, dialogMessage,
 						MessageDialog.WARNING, new String[] { "Ok", "Cancel" },
 						0);
-				int result = popup.open();
+				final int result = popup.open();
 				if (result == 0) {
 					try {
 						api.upgrade("milestone-25");
-					} catch (Exception e) {
+					} catch (final Exception e) {
 						if (e instanceof FileNotFoundException) {
-							MessageDialog popup2 = new MessageDialog(
+							final MessageDialog popup2 = new MessageDialog(
 									shell,
 									"Download ProB Binaries",
 									null,
 									"The download failed because your ProB binary is in use."
 											+ " We will try to load your machine with your current binary.",
-									MessageDialog.ERROR, new String[] { "Ok" },
-									0);
+											MessageDialog.ERROR, new String[] { "Ok" },
+											0);
 							popup2.open();
 						}
 					}
@@ -73,7 +73,7 @@ public class VersionController {
 		}
 		checked = true;
 
-		VersionController c = new VersionController();
+		final VersionController c = new VersionController();
 		c.check();
 
 	}

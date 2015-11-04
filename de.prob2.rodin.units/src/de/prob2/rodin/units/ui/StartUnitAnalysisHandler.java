@@ -34,11 +34,11 @@ import org.rodinp.core.RodinCore;
 import org.rodinp.core.RodinDBException;
 import org.rodinp.core.RodinMarkerUtil;
 
-import de.prob.Main;
 import de.prob.parser.BindingGenerator;
 import de.prob.prolog.term.CompoundPrologTerm;
 import de.prob.prolog.term.ListPrologTerm;
 import de.prob.prolog.term.PrologTerm;
+import de.prob.servlet.Main;
 import de.prob.units.UnitAnalysis;
 import de.prob2.rodin.units.pragmas.InferredUnitPragmaAttribute;
 import de.prob2.rodin.units.pragmas.UnitPragmaAttribute;
@@ -47,7 +47,7 @@ import de.prob2.rodin.units.problems.MultipleUnitsInferredMarker;
 import de.prob2.rodin.units.problems.NoUnitInferredMarker;
 
 public class StartUnitAnalysisHandler extends AbstractHandler implements
-		IHandler {
+IHandler {
 	private ISelection fSelection;
 
 	@Override
@@ -65,7 +65,7 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 
 			try {
 				// load machine and activate plugin
-				UnitAnalysis ua = Main.getInjector().getInstance(
+				final UnitAnalysis ua = Main.getInjector().getInstance(
 						UnitAnalysis.class);
 
 				String fileName = rootElement.getResource().getRawLocation()
@@ -75,10 +75,10 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 				} else {
 					fileName = fileName.replace(".bum", ".bcm");
 				}
-				CompoundPrologTerm result = ua.run(fileName);
+				final CompoundPrologTerm result = ua.run(fileName);
 
 				processResults(result);
-			} catch (RodinDBException e) {
+			} catch (final RodinDBException e) {
 				throw new ExecutionException(
 						"Unit Analysis Failed with a RodinDBException", e);
 			}
@@ -87,12 +87,12 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 	}
 
 	private void removeUnitErrorMarkers(final IFile resource) {
-		IProject project = resource.getProject();
+		final IProject project = resource.getProject();
 		try {
-			IMarker[] markers = project.findMarkers(
+			final IMarker[] markers = project.findMarkers(
 					"org.eclipse.core.resources.problemmarker", true,
 					IResource.DEPTH_INFINITE);
-			for (IMarker iMarker : markers) {
+			for (final IMarker iMarker : markers) {
 				if (iMarker.getAttribute(RodinMarkerUtil.ERROR_CODE, "")
 						.equals(MultipleUnitsInferredMarker.ERROR_CODE)) {
 					iMarker.delete();
@@ -107,7 +107,7 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 				}
 			}
 
-		} catch (CoreException e1) {
+		} catch (final CoreException e1) {
 			// TODO
 		}
 	}
@@ -115,12 +115,12 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 	private void processResults(final CompoundPrologTerm result)
 			throws RodinDBException, ExecutionException {
 		// preprocess the list into a map
-		Map<String, String> variables = new HashMap<String, String>();
-		List<String> offendingDefinitions = new ArrayList<String>();
+		final Map<String, String> variables = new HashMap<String, String>();
+		final List<String> offendingDefinitions = new ArrayList<String>();
 
-		ListPrologTerm liste = BindingGenerator.getList(result.getArgument(1));
+		final ListPrologTerm liste = BindingGenerator.getList(result.getArgument(1));
 
-		for (PrologTerm term : liste) {
+		for (final PrologTerm term : liste) {
 			if (term.isAtom()) {
 				// this is an error message. do something about it.
 				String offendingUnitDefinition = PrologTerm.atomicString(term)
@@ -144,20 +144,20 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 			}
 		}
 
-		IEventBRoot rootElement = getRootElement();
+		final IEventBRoot rootElement = getRootElement();
 		// look up the variables / constants of the selected machine in
 		// the state
 		// and set the inferredUnitPragma attribute
 		if (rootElement instanceof IMachineRoot) {
 			// find and update variables
-			IVariable[] allVariables = rootElement.getMachineRoot()
+			final IVariable[] allVariables = rootElement.getMachineRoot()
 					.getVariables();
-			for (IVariable var : allVariables) {
+			for (final IVariable var : allVariables) {
 				// reset inferred unit
 				var.setAttributeValue(InferredUnitPragmaAttribute.ATTRIBUTE,
 						"", new NullProgressMonitor());
 
-				String variableName = var.getIdentifierString();
+				final String variableName = var.getIdentifierString();
 				if (variables.containsKey(variableName)) {
 					var.setAttributeValue(
 							InferredUnitPragmaAttribute.ATTRIBUTE,
@@ -190,15 +190,15 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 
 		} else if (rootElement instanceof IContextRoot) {
 			// find and update constants
-			IConstant[] allConstants = rootElement.getContextRoot()
+			final IConstant[] allConstants = rootElement.getContextRoot()
 					.getConstants();
 
-			for (IConstant cst : allConstants) {
+			for (final IConstant cst : allConstants) {
 				// reset inferred unit
 				cst.setAttributeValue(InferredUnitPragmaAttribute.ATTRIBUTE,
 						"", new NullProgressMonitor());
 
-				String constantName = cst.getIdentifierString();
+				final String constantName = cst.getIdentifierString();
 				if (variables.containsKey(constantName)) {
 					cst.setAttributeValue(
 							InferredUnitPragmaAttribute.ATTRIBUTE,
@@ -245,7 +245,7 @@ public class StartUnitAnalysisHandler extends AbstractHandler implements
 				if (element instanceof IEventBRoot) {
 					root = (IEventBRoot) element;
 				} else if (element instanceof IFile) {
-					IRodinFile rodinFile = RodinCore.valueOf((IFile) element);
+					final IRodinFile rodinFile = RodinCore.valueOf((IFile) element);
 					if (rodinFile != null) {
 						root = (IEventBRoot) rodinFile.getRoot();
 					}

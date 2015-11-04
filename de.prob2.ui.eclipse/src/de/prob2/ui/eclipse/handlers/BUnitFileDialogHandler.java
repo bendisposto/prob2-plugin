@@ -7,21 +7,21 @@ import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-import de.prob.Main;
+import de.prob.servlet.Main;
 import de.prob.testing.TestRunner;
 
 public class BUnitFileDialogHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
-		Display display = Display.getDefault();
-		Shell shell = display.getActiveShell();
+		final Display display = Display.getDefault();
+		final Shell shell = display.getActiveShell();
 
 		// File standard dialog
-		DirectoryDialog fileDialog = new DirectoryDialog(shell);
+		final DirectoryDialog fileDialog = new DirectoryDialog(shell);
 		// Set the text
 		fileDialog
-				.setText("Select directory where your test file is contained");
+		.setText("Select directory where your test file is contained");
 		// Set filter on .txt files
 		// fileDialog.setFilterExtensions(new String[] { "*.groovy" });
 		// Put in a readable name for the filter
@@ -35,7 +35,7 @@ public class BUnitFileDialogHandler extends AbstractHandler {
 
 			@Override
 			public void run() {
-				TestRunner tests = Main.getInjector().getInstance(
+				final TestRunner tests = Main.getInjector().getInstance(
 						TestRunner.class);
 				tests.runTests(selected);
 			}

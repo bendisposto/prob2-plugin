@@ -21,9 +21,8 @@ import org.eventb.core.IMachineRoot;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
-import de.prob.Main;
-import de.prob.model.eventb.EventBModel;
 import de.prob.scripting.Api;
+import de.prob.servlet.Main;
 import de.prob.statespace.StateSpace;
 
 public class ExportClassicHandler extends AbstractHandler implements IHandler {
@@ -74,7 +73,7 @@ public class ExportClassicHandler extends AbstractHandler implements IHandler {
 				prefs.put("dir", newPath);
 				try {
 					prefs.flush();
-				} catch (BackingStoreException e) {
+				} catch (final BackingStoreException e) {
 					// Ignore, if preferences are not stored correctly we simply
 					// ignore it (annoying, but not critical)
 				}
@@ -99,14 +98,14 @@ public class ExportClassicHandler extends AbstractHandler implements IHandler {
 				modelFile = modelFile.replace(".bum", ".bcm");
 			}
 
-			Api api = Main.getInjector().getInstance(Api.class);
+			final Api api = Main.getInjector().getInstance(Api.class);
 
 			try {
-				StateSpace s = api.eventb_load(modelFile);
+				final StateSpace s = api.eventb_load(modelFile);
 				api.eventb_save(s, filename);
-			} catch (Exception e) {
-				Display display = Display.getDefault();
-				Shell shell = display.getActiveShell();
+			} catch (final Exception e) {
+				final Display display = Display.getDefault();
+				final Shell shell = display.getActiveShell();
 				MessageDialog.openError(shell, "Error occurred",
 						"Exporting the specified file did not succeed because "
 								+ e.getMessage());

@@ -9,7 +9,6 @@ import org.eventb.core.seqprover.IProofMonitor;
 import org.osgi.service.prefs.Preferences;
 
 import de.be4.classicalb.core.parser.node.AEventBContextParseUnit;
-import de.prob.Main;
 import de.prob.animator.IAnimator;
 import de.prob.animator.command.ComposedCommand;
 import de.prob.animator.command.SetPreferenceCommand;
@@ -19,6 +18,7 @@ import de.prob.parser.ISimplifiedROMap;
 import de.prob.prolog.output.IPrologTermOutput;
 import de.prob.prolog.term.ListPrologTerm;
 import de.prob.prolog.term.PrologTerm;
+import de.prob.servlet.Main;
 import de.prob2.rodin.disprover.core.DisproverReasoner;
 import de.prob2.rodin.disprover.core.job.ProBCommandJob;
 
@@ -28,10 +28,10 @@ import de.prob2.rodin.disprover.core.job.ProBCommandJob;
  * the arguments from that operation are joined with the provided variables and
  * returned as an {@link ICounterExample}.
  * <p>
- * 
+ *
  * This command is probably not useful without {@link DisproverReasoner}, which
  * calls it.
- * 
+ *
  * @author jastram
  */
 public class DisproverCommand extends ComposedCommand {
@@ -48,9 +48,9 @@ public class DisproverCommand extends ComposedCommand {
 
 	public DisproverCommand(Set<EventB> allHypotheses2,
 			Set<EventB> selectedHypotheses2, EventB goal2, int timeout) {
-		this.allHypotheses = allHypotheses2;
-		this.selectedHypotheses = selectedHypotheses2;
-		this.goal = goal2;
+		allHypotheses = allHypotheses2;
+		selectedHypotheses = selectedHypotheses2;
+		goal = goal2;
 		this.timeout = timeout;
 	}
 
@@ -59,7 +59,7 @@ public class DisproverCommand extends ComposedCommand {
 			EventB goal2, int timeout, AEventBContextParseUnit context,
 			IProofMonitor pm) throws InterruptedException {
 
-		Preferences prefNode = Platform.getPreferencesService().getRootNode()
+		final Preferences prefNode = Platform.getPreferencesService().getRootNode()
 				.node(InstanceScope.SCOPE).node("prob_disprover_preferences");
 
 		// set clpfd and chr preference
@@ -68,13 +68,13 @@ public class DisproverCommand extends ComposedCommand {
 		final SetPreferenceCommand setCHR = new SetPreferenceCommand("CHR",
 				Boolean.toString(prefNode.getBoolean("chr", true)));
 
-		DisproverLoadCommand load = new DisproverLoadCommand(project, context);
+		final DisproverLoadCommand load = new DisproverLoadCommand(project, context);
 
-		StartAnimationCommand start = new StartAnimationCommand();
+		final StartAnimationCommand start = new StartAnimationCommand();
 
-		DisproverCommand disprove = new DisproverCommand(allHypotheses2,
+		final DisproverCommand disprove = new DisproverCommand(allHypotheses2,
 				selectedHypotheses2, goal2, timeout
-						* prefNode.getInt("timeout", 1000));
+				* prefNode.getInt("timeout", 1000));
 
 		composed = new ComposedCommand(setCLPFD, setCHR, load, start, disprove);
 
@@ -103,12 +103,12 @@ public class DisproverCommand extends ComposedCommand {
 		goal.printProlog(pto);
 
 		pto.openList();
-		for (EventB p : this.allHypotheses) {
+		for (final EventB p : allHypotheses) {
 			p.printProlog(pto);
 		}
 		pto.closeList();
 		pto.openList();
-		for (EventB p : this.selectedHypotheses) {
+		for (final EventB p : selectedHypotheses) {
 			p.printProlog(pto);
 		}
 		pto.closeList();
@@ -121,7 +121,7 @@ public class DisproverCommand extends ComposedCommand {
 	public void processResult(
 			final ISimplifiedROMap<String, PrologTerm> bindings) {
 
-		PrologTerm term = bindings.get(RESULT);
+		final PrologTerm term = bindings.get(RESULT);
 
 		counterExample = null;
 
@@ -132,7 +132,7 @@ public class DisproverCommand extends ComposedCommand {
 			counterExample = new CounterExample(false, true, false);
 		}
 		if ("no_solution_found".equals(term.getFunctor())) {
-			PrologTerm reason = term.getArgument(1);
+			final PrologTerm reason = term.getArgument(1);
 			if (reason.hasFunctor("clpfd_overflow", 0)) {
 				counterExample = new CounterExample(false, false,
 						"CLPFD Integer Overflow");
@@ -152,9 +152,9 @@ public class DisproverCommand extends ComposedCommand {
 
 		if ("solution".equals(term.getFunctor())) {
 			counterExample = new CounterExample(true, false, false);
-			ListPrologTerm vars = (ListPrologTerm) term.getArgument(1);
+			final ListPrologTerm vars = (ListPrologTerm) term.getArgument(1);
 
-			for (PrologTerm e : vars) {
+			for (final PrologTerm e : vars) {
 				counterExample.addVar(e.getArgument(1).getFunctor(), e
 						.getArgument(3).getFunctor());
 			}
@@ -162,9 +162,9 @@ public class DisproverCommand extends ComposedCommand {
 
 		if ("solution_on_selected_hypotheses".equals(term.getFunctor())) {
 			counterExample = new CounterExample(true, false, true);
-			ListPrologTerm vars = (ListPrologTerm) term.getArgument(1);
+			final ListPrologTerm vars = (ListPrologTerm) term.getArgument(1);
 
-			for (PrologTerm e : vars) {
+			for (final PrologTerm e : vars) {
 				counterExample.addVar(e.getArgument(1).getFunctor(), e
 						.getArgument(3).getFunctor());
 			}
