@@ -8,7 +8,7 @@ The most recent build can be installed using this update site: http://www3.hhu.d
 
 Released versions can be found here: http://nightly.cobra.cs.uni-duesseldorf.de/prob2/updates/releases/
 
-The released versions were tested a bit more thoroughly.
+The released versions have been tested a bit more thoroughly.
 
 ## Building
 Maven 3 is required to build the project:
