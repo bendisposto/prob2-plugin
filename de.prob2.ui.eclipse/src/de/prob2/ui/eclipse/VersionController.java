@@ -31,10 +31,10 @@ public class VersionController {
 						0);
 				final int result = popup.open();
 				if (result == 0) {
-					api.upgrade("milestone-25");
+					api.upgrade("2.0.0-snapshot");
 				}
 			} else if (!version.revision
-					.equals("28f6135804e7218347092f146d37cdd492e95eca")) {
+					.equals("fbaa6d5c9323581aa64ba9e2526808ff27040922")) {
 				final Display display = Display.getDefault();
 				final Shell shell = display.getActiveShell();
 				final String dialogMessage = "The ProB binary in your home directory may not be compatible with this version of the ProB 2.0 Plug-in."
@@ -48,7 +48,7 @@ public class VersionController {
 				final int result = popup.open();
 				if (result == 0) {
 					try {
-						api.upgrade("milestone-25");
+						api.upgrade("2.0.0-snapshot");
 					} catch (final Exception e) {
 						if (e instanceof FileNotFoundException) {
 							final MessageDialog popup2 = new MessageDialog(
