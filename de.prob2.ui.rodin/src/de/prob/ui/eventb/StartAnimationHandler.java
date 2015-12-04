@@ -29,6 +29,7 @@ import de.prob.exception.ProBError;
 import de.prob.model.eventb.EventBModel;
 import de.prob.scripting.EventBFactory;
 import de.prob.scripting.ExtractedModel;
+import de.prob.scripting.LoadClosures;
 import de.prob.scripting.ModelTranslationError;
 import de.prob.servlet.Main;
 import de.prob.statespace.AnimationSelector;
@@ -68,6 +69,7 @@ public class StartAnimationHandler extends AbstractHandler {
 
 			final Map<String, String> prefs = getPreferences();
 			final StateSpace s = em.load(prefs);
+			LoadClosures.getEVENTB().call(s);
 
 			final Trace t = new Trace(s);
 			final AnimationSelector selector = injector
