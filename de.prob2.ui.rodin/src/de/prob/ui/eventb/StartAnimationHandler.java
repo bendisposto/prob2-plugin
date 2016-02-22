@@ -36,7 +36,6 @@ import de.prob.statespace.AnimationSelector;
 import de.prob.statespace.StateSpace;
 import de.prob.statespace.Trace;
 import de.prob2.ui.eclipse.ErrorHandler;
-import de.prob2.ui.eclipse.VersionController;
 
 public class StartAnimationHandler extends AbstractHandler {
 
@@ -45,7 +44,6 @@ public class StartAnimationHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
-		VersionController.ensureInstalled();
 
 		fSelection = HandlerUtil.getCurrentSelection(event);
 

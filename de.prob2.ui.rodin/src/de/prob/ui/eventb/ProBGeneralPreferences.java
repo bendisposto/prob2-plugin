@@ -38,7 +38,6 @@ import de.prob.prolog.term.ListPrologTerm;
 import de.prob.prolog.term.PrologTerm;
 import de.prob.servlet.Main;
 import de.prob2.ui.eclipse.ErrorHandler;
-import de.prob2.ui.eclipse.VersionController;
 
 /**
  * A preferences page extension (Window->Preferences) to change the general
@@ -69,7 +68,6 @@ IWorkbenchPreferencePage {
 		eclipsePrefs = Platform.getPreferencesService().getRootNode().node(
 				InstanceScope.SCOPE).node("prob_animation_preferences");
 
-		VersionController.ensureInstalled();
 		final IAnimator animator = Main.getInjector().getInstance(IAnimator.class);
 		final GetDefaultPreferencesCommand cmd = new GetDefaultPreferencesCommand();
 		animator.execute(cmd);

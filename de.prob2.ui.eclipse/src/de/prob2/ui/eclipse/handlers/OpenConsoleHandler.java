@@ -12,31 +12,27 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
-import de.prob2.ui.eclipse.VersionController;
-
 public class OpenConsoleHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
-		VersionController.ensureInstalled();
+		final String id = event.getParameter("de.prob2.ui.eclipse.views.id");
+		final String selected = "";
 
-		String id = event.getParameter("de.prob2.ui.eclipse.views.id");
-		String selected = "";
-
-		IWorkbenchWindow window = PlatformUI.getWorkbench()
+		final IWorkbenchWindow window = PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow();
-		IWorkbenchPage activePage = window.getActivePage();
+		final IWorkbenchPage activePage = window.getActivePage();
 
 		try {
-			String secId = UUID.randomUUID().toString();
-			IViewPart view = activePage.showView(id, secId,
+			final String secId = UUID.randomUUID().toString();
+			final IViewPart view = activePage.showView(id, secId,
 					IWorkbenchPage.VIEW_ACTIVATE);
 			if (view instanceof IFileView) {
-				IFileView v = (IFileView) view;
+				final IFileView v = (IFileView) view;
 				v.setFileName(selected);
 			}
 
-		} catch (PartInitException e) {
+		} catch (final PartInitException e) {
 			e.printStackTrace();
 		}
 		return null;
