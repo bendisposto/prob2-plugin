@@ -229,15 +229,6 @@
             restorable="false">
       </view>
       <view
-            allowMultiple="true"
-            category="de.prob2"
-            class="de.prob2.ui.eclipse.views.BMSView"
-            icon="icons/bms.png"
-            id="de.prob2.ui.views.bms"
-            name="BMotion Studio"
-            restorable="false">
-      </view>
-      <view
             category="de.prob2"
             class="de.prob2.ui.eclipse.views.BugReport"
             icon="icons/sample.gif"

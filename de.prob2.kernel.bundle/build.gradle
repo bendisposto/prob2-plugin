@@ -20,7 +20,7 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.0' // Apache Licence 2.0
     runtime group: "de.hhu.stups", name: "de.prob2.kernel", version: "2.0.0-SNAPSHOT" , changing: true
     runtime group: "de.hhu.stups", name: "prob2-ui-servlets", version: "2.0.2-SNAPSHOT" , changing: false
-    runtime group: "de.hhu.stups", name: "bmotion-prob", version: "0.2.3-SNAPSHOT" , changing: false
+    //runtime group: "de.hhu.stups", name: "bmotion-prob", version: "0.2.3-SNAPSHOT" , changing: false
 }
 
 task cleanLibDir(type: Delete) {
