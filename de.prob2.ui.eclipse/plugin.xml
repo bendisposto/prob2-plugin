@@ -255,16 +255,18 @@
             name="Worksheet"
             restorable="true">
       </view>
-  
+-->
       <view
             allowMultiple="true"
-            category="de.hhu.stups.prob"
-            class="de.prob.ui.bmsview.BmsRunView"
+            category="de.prob2"
+            class="de.prob2.ui.eclipse.views.BMotionView"
             icon="icons/bms.png"
             id="de.prob.ui.views.bmsrun"
-            name="BMotion Studio View"
+            name="BMotionWeb"
             restorable="true">
       </view>
+      
+<!--      
       <view
             allowMultiple="true"
             category="de.hhu.stups.prob"
@@ -274,9 +276,7 @@
             name="BMotion Studio Editor"
             restorable="true">
       </view>
-
 -->
-
 
    </extension>
   <extension

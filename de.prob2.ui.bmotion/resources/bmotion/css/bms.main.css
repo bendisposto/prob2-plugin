@@ -1,0 +1,254 @@
+@import url("libs/ext/jquery-ui/jquery-ui.css");
+@import url("bootstrap/css/bootstrap.css");
+@import url("libs/ext/cytoscape.navigator/cytoscape.js-navigator.css");
+@import url("libs/bower/qtip2/jquery.qtip.css");
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.editorIframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+.tabset, .tab-content, .tab-pane, .tabbable {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 23px;
+  margin: 0;
+}
+.modal-vertical-centered {
+  transform: translate(0, 50%) !important;
+  -ms-transform: translate(0, 50%) !important;
+  /* IE 9 */
+  -webkit-transform: translate(0, 50%) !important;
+  /* Safari and Chrome */
+}
+.full-screen .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.full-screen .buttons {
+  margin: 10px 0 0 0;
+}
+.full-screen .buttons button {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  float: right;
+  opacity: 1;
+  margin-right: 10px;
+}
+.full-screen button span {}
+.modal-header {
+  border-bottom: 0;
+}
+.full-screen .modal-header {
+  padding: 0;
+  margin: 0;
+}
+.modal-footer {
+  border-top: 0;
+}
+.bms-editor .modal-header {
+  color: white;
+}
+.full-screen .modal-dialog {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.full-screen .modal-content {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.bms-editor .modal-content {
+  background: #2f2f2c;
+}
+.full-screen .modal-body {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 40px 0;
+  margin: 0;
+}
+.full-screen .modal-content iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+.full-screen .modal-title {
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+}
+.bmotion-img-logo {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-image: url('../images/bmsteaser.jpg');
+}
+.bmotion-img-loader {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-image: url('../images/icon_loading.gif');
+}
+.bmotion-img-error {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-image: url('../images/icon_error.png');
+}
+.bmotion-alert {
+  margin-top: 15px;
+  text-align: center;
+}
+.dropZoneOuter {
+  display: table;
+  position: absolute;
+}
+.dropZoneMiddle {
+  display: table-cell;
+  vertical-align: middle;
+}
+.dropZone {
+  margin-top: -70px;
+  border: 3px dashed #d3d3d3;
+  background: url('../images/bmsteaser.jpg') no-repeat top center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 500px;
+  height: 375px;
+  font-size: 20px;
+  padding-top: 290px;
+  cursor: pointer;
+}
+.dropZone:hover {
+  /*border-radius: 15px;*/
+  border: 3px solid lightblue;
+}
+.dropZone p {
+  padding: 0 15px 0 15px;
+}
+.dragover {
+  /*border-radius: 15px;*/
+  border: 3px solid lightblue;
+}
+.disabled span {
+  color: red;
+}
+.bmsIframe {
+  display: block;
+}
+.enabled span, .enabled a {
+  color: green;
+  text-decoration: none;
+}
+.enabled a:hover {
+  text-decoration: none;
+  color: green;
+}
+.qtip {
+  max-width: 400px;
+}
+.qtip-content ul {
+  margin: 10px;
+  padding: 0;
+  list-style-type: none;
+}
+.ui-dialog .ui-dialog-content {
+  padding: 5px 0 0 0;
+}
+.position-fixed {
+  position: fixed;
+}
+.fullWidthHeight {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.projection-diagram-navigator, .trace-diagram-navigator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 300px;
+  width: 300px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-default {
+  cursor: auto;
+}
+.form-group .help-block {
+  display: none;
+}
+.form-group.has-error .help-block {
+  display: block;
+}
+.bms-tabs {
+  margin-top: 5px;
+}
+.nav-tabs li {
+  font-size: 9pt;
+  cursor: default;
+  width: 160px;
+  text-align: center;
+}
+.nav-tabs li a {
+  cursor: default;
+}
+.diagram-form {
+  width: 400px;
+  margin: 15px;
+}
+.tab-close-bt {
+  position: absolute;
+  top: 11px;
+  right: 9px;
+}
+
+.userInteractionsView {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.userInteractionsView .table {
+  font-size: 12px;
+}
+
+.userInteractionsView-item {
+  cursor: pointer;
+}
+
+.userInteractionsView-item-past {
+  font-weight: normal;
+}
+
+.userInteractionsView-item-current {
+  font-weight: bold;
+}
+
+.userInteractionsView-item-future {
+  font-weight: normal;
+  color: lightgray;
+}

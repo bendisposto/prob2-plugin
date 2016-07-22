@@ -18,6 +18,7 @@
     <module>../de.prob2.ui.eclipse.feature</module>
     <module>../de.prob2.ui.rodin.feature</module>
     <module>../de.prob2.updatesite</module>
+    <module>../de.prob2.ui.bmotion</module>
   </modules>
 
   <properties>

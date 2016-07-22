@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ProB 2.0 BMotionWeb Resources
+Bundle-SymbolicName: de.prob2.ui.bmotion
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: HHU - Stups Group
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
