@@ -46,12 +46,13 @@
    <url>http://rodin-b-sharp.sourceforge.net/core-updates</url>
  </repository>
 
- <repository>
+ <!-- 
+<repository>
    <id>targetRepository3</id>
    <layout>p2</layout>
    <url>http://rodin-b-sharp.sourceforge.net/updates</url>
  </repository>
-
+-->
 
  </repositories>
 
